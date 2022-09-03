@@ -15,10 +15,11 @@ const filterObj = (obj, ...allowedFields) => {
 exports.checkAnswer = async (req, res, next) => {
   try {
     // 1) Filtered out unwanted fields names that are not allowed to be updated
-    const filteredBody = filterObj(req.body, 'questionId', 'option', 'userId');
+    const filteredBody = filterObj(req.body, 'questionId', 'option');
 
     // 2) Get questionId, option and User ID from request
-    const { questionId, option, userId } = req.body;
+    const { questionId, option } = req.body;
+    const userId = req.params.id;
     if (!questionId || !option || !userId) {
       res.status(404).json({
         status: 'failed',
