@@ -1,5 +1,6 @@
 const Question = require('./../models/questionModel');
 
+// ROUTE TO CREATE A QUESTION
 exports.createQuestion = async (req, res, next) => {
   try {
     console.log('Question is being created');

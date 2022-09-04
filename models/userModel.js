@@ -43,10 +43,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// userSchema.virtual('score').get(function () {
-//   return 0;
-// });
-
 // CREATING AN OBJECT USER BASED ON THE USER SCHEMA
 const User = mongoose.model('User', userSchema);
 
