@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const { response } = require('express');
 
+const questionArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -35,7 +37,16 @@ const createSendToken = (user, statusCode, res) => {
 exports.signup = async (req, res, next) => {
   try {
     console.log(req.body);
-    const newUser = await User.create(req.body);
+    questionArray.sort((a, b) => 0.5 - Math.random());
+    const newUser = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      branch: req.body.branch,
+      password: req.body.password,
+      techStack: req.body.techStack,
+      assignedQuestions: questionArray,
+    });
 
     createSendToken(newUser, 201, res);
   } catch (err) {
