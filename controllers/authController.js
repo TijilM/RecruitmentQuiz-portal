@@ -1,4 +1,3 @@
-const AppError = require('./../utils/appError');
 // const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
@@ -57,13 +56,21 @@ exports.login = async (req, res, next) => {
 
     // 1) Check if email and password exist
     if (!email || !password) {
-      return next(new AppError('Please provide email and password!', 400));
+      res.status(400).json({
+        status: 'failed',
+        message: 'Please provide email and password!',
+      });
+      return next();
     }
     // 2) Check if user exists && password is correct
     const user = await User.findOne({ email });
 
     if (!user || !(user.password === password)) {
-      return next(new AppError('Incorrect email or password', 401));
+      res.status(401).json({
+        status: 'failed',
+        message: 'Incorrect email or password',
+      });
+      return next();
     }
 
     // 3) If everything ok, send token to client
@@ -100,9 +107,11 @@ exports.protect = async (req, res, next) => {
     }
     if (!token) {
       console.log('if');
-      return next(
-        new AppError('You are not logged in! Please log in to get access.', 401)
-      );
+      res.status(401).json({
+        status: 'failed',
+        message: 'You are not logged in! Please log in to get access.',
+      });
+      return next();
     }
 
     // 2) Verification token
@@ -111,12 +120,11 @@ exports.protect = async (req, res, next) => {
     // 3) Check if user still exists
     const currentUser = await User.findById(decoded.id);
     if (!currentUser) {
-      return next(
-        new AppError(
-          'The user belonging to this token does no longer exist.',
-          401
-        )
-      );
+      res.status(401).json({
+        status: 'failed',
+        message: 'The user belonging to this token does no longer exist.',
+      });
+      return next();
     }
 
     // GRANT ACCESS TO PROTECTED ROUTE
@@ -124,6 +132,10 @@ exports.protect = async (req, res, next) => {
     res.locals.user = currentUser;
     next();
   } catch (err) {
-    return next(new AppError('You are not logged in', 401));
+    res.status(401).json({
+      status: 'failed',
+      message: 'You are not logged in! Please log in to get access.',
+    });
+    return next();
   }
 };

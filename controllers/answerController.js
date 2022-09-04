@@ -14,6 +14,7 @@ const filterObj = (obj, ...allowedFields) => {
 // ROUTE TO CHECK WHETHER ANSWER IS CORRECT AND UPDATE POINTS ACCORDINGLY
 exports.checkAnswer = async (req, res, next) => {
   try {
+    console.log(req.body);
     // 1) Filtered out unwanted fields names that are not allowed to be updated
     const filteredBody = filterObj(req.body, 'questionId', 'option');
 
@@ -21,37 +22,31 @@ exports.checkAnswer = async (req, res, next) => {
     const { questionId, option } = req.body;
     const userId = req.params.id;
     if (!questionId || !option || !userId) {
-      res.status(404).json({
+      res.status(400).json({
         status: 'failed',
         err: 'No question ID , answer , or user ID was provided',
       });
-      return next(
-        new AppError('Please provide questionId , option , or userId!', 400)
-      );
+      return next();
     }
 
     // Find question and user
     const question = await Question.findById(questionId);
-    console.log(question);
     const user = await User.findById(userId);
-    console.log(user);
 
     // In case no matching question and user exist
     if (!question) {
-      res.status(404).json({
+      res.status(400).json({
         status: 'failed',
         err: 'No question matching the questionId found',
       });
-      return next(
-        new AppError('No question matching the questionId was found!', 400)
-      );
+      return next();
     }
     if (!user) {
-      res.status(404).json({
+      res.status(400).json({
         status: 'failed',
         err: 'No user matching the userId found',
       });
-      return next(new AppError('No user matching the userId was found!', 400));
+      return next();
     }
 
     // Check if answer is correct
