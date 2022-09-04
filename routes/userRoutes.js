@@ -12,5 +12,6 @@ router.get('/logout', authController.logout);
 router.use(authController.protect);
 
 router.get('/profile', userController.getMe, userController.getUserProfile);
+router.get('/getPoints', userController.getMe, userController.getPoints);
 
 module.exports = router;
