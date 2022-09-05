@@ -12,35 +12,26 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 // ROUTE TO CHECK WHETHER ANSWER IS CORRECT AND UPDATE POINTS ACCORDINGLY
-exports.checkAnswer = async (req, res, next) => {
+exports.checkAnswers = async (req, res, next) => {
   try {
     console.log(req.body);
     // 1) Filtered out unwanted fields names that are not allowed to be updated
-    const filteredBody = filterObj(req.body, 'questionId', 'option');
+    const filteredBody = filterObj(req.body, 'questionIdsAndAnswers');
 
-    // 2) Get questionId, option and User ID from request
-    const { questionId, option } = req.body;
+    // 2) Get questionIds , answers and User ID from request
+    const { questionIdsAndAnswers } = filteredBody;
     const userId = req.params.id;
-    if (!questionId || !option || !userId) {
+    if (!questionIdsAndAnswers || !userId) {
       res.status(400).json({
         status: 'failed',
-        err: 'No question ID , answer , or user ID was provided',
+        err: 'No question IDs , answers , or user ID was provided',
       });
       return next();
     }
 
-    // Find question and user
-    const question = await Question.findById(questionId);
+    // Find user
     const user = await User.findById(userId);
-
-    // In case no matching question and user exist
-    if (!question) {
-      res.status(400).json({
-        status: 'failed',
-        err: 'No question matching the questionId found',
-      });
-      return next();
-    }
+    // In case no matching user exists
     if (!user) {
       res.status(400).json({
         status: 'failed',
@@ -48,33 +39,42 @@ exports.checkAnswer = async (req, res, next) => {
       });
       return next();
     }
+    // Declaring variable to store new score and setting it to zero as answers will only be submitted once
+    let newScore = 0;
 
-    // Check if answer is correct
-    if (question.answer === option) {
-      const newScore = question.points + user.score;
-      console.log(newScore);
-      res.status(200).json({
-        status: 'success',
-        message: 'correct',
-      });
-      // Update user score
-      const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        {
-          score: newScore,
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-      console.log(updatedUser.score);
-    } else {
-      res.status(200).json({
-        status: 'success',
-        message: 'incorrect',
-      });
+    for (const questionIdAndAnswer of questionIdsAndAnswers) {
+      // Find question from the provided question Ids
+      let question = await Question.findById(questionIdAndAnswer[0]);
+      // In case no matching question exists
+      if (!question) {
+        res.status(400).json({
+          status: 'failed',
+          err: 'No question matching the questionId found',
+        });
+        return next();
+      }
+
+      // Match correct answer to question with the marked answer
+      if (question.answer === questionIdAndAnswer[1])
+        newScore += question.points;
     }
+    // Update user score
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        score: newScore,
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    console.log(updatedUser.score);
+    // Send the final score as response
+    res.status(200).json({
+      status: 'success',
+      result: newScore,
+    });
   } catch (err) {
     res.status(404).json({
       status: 'failed',
