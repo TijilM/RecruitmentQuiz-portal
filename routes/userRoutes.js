@@ -13,5 +13,10 @@ router.use(authController.protect);
 
 router.get('/profile', userController.getMe, userController.getUserProfile);
 router.get('/getPoints', userController.getMe, userController.getPoints);
+router.patch(
+  '/cheatAttempt',
+  userController.getMe,
+  userController.cheatAttempt
+);
 
 module.exports = router;

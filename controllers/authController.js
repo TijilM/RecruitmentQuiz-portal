@@ -81,6 +81,15 @@ exports.login = async (req, res, next) => {
       return next();
     }
 
+    if (user.cheatAttempts >= 3) {
+      res.status(401).json({
+        status: 'failed',
+        message:
+          'You have been disqualified as you have been caught cheating three times.',
+      });
+      return next();
+    }
+
     // 3) If everything ok, send token to client
     createSendToken(user, 200, res);
   } catch (err) {
