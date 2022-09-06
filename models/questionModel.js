@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 // A QUESTION REQUEST SHOULD CONTAIN THE QUESTION, THE OPTIONS, THE CORRECT ANSWERAND THE DIFFICULTY OF THE QUESTION
 const questionSchema = new mongoose.Schema({
+  questionNumber: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
   question: {
     type: String,
     required: [true, 'Please enter a question!'],

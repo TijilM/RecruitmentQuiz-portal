@@ -41,9 +41,6 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  assignedQuestions: {
-    type: Array,
-  },
   cheatAttempts: {
     type: Number,
     default: 0,

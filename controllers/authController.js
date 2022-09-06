@@ -3,8 +3,11 @@ const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const { response } = require('express');
+const Question = require('./../models/questionModel');
 
-const questionArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const easyQuestions = [1, 2, 3, 4, 5, 6, 7];
+const mediumQuestions = [7, 8, 9, 10, 11, 12, 13];
+const hardQuestions = [14, 15, 16, 17, 18, 19, 20];
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -36,8 +39,6 @@ const createSendToken = (user, statusCode, res) => {
 // ROUTE TO SIGN UP
 exports.signup = async (req, res, next) => {
   try {
-    console.log(req.body);
-    questionArray.sort((a, b) => 0.5 - Math.random());
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -45,7 +46,6 @@ exports.signup = async (req, res, next) => {
       branch: req.body.branch,
       password: req.body.password,
       techStack: req.body.techStack,
-      assignedQuestions: questionArray,
     });
 
     createSendToken(newUser, 201, res);

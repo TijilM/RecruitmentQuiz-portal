@@ -19,3 +19,22 @@ exports.createQuestion = async (req, res, next) => {
     });
   }
 };
+
+exports.getQuestions = async (req, res, next) => {
+  const easy = await Question.find({ difficulty: 'easy' });
+  const medium = await Question.find({ difficulty: 'medium' });
+  const hard = await Question.find({ difficulty: 'hard' });
+
+  const questions = [
+    easy.sort((a, b) => Math.random() - 0.5).slice(0, 1),
+    medium.sort((a, b) => Math.random() - 0.5).slice(0, 1),
+    hard.sort((a, b) => Math.random() - 0.5).slice(0, 1),
+  ];
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      questions,
+    },
+  });
+};
