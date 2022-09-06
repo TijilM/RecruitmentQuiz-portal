@@ -21,6 +21,7 @@ exports.createQuestion = async (req, res, next) => {
 };
 
 exports.getQuestions = async (req, res, next) => {
+  // GET ALL QUESTIONS
   const easy = await Question.find({ difficulty: 'easy' });
   const medium = await Question.find({ difficulty: 'medium' });
   const hard = await Question.find({ difficulty: 'hard' });
