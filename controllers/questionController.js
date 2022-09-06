@@ -22,14 +22,20 @@ exports.createQuestion = async (req, res, next) => {
 
 exports.getQuestions = async (req, res, next) => {
   // GET ALL QUESTIONS
-  const easy = await Question.find({ difficulty: 'easy' });
-  const medium = await Question.find({ difficulty: 'medium' });
-  const hard = await Question.find({ difficulty: 'hard' });
+  const easy = Question.find({ difficulty: 'easy' });
+  const medium = Question.find({ difficulty: 'medium' });
+  const hard = Question.find({ difficulty: 'hard' });
+
+  const [easyQuestions, mediumQuestions, hardQuestions] = await Promise.all([
+    easy,
+    medium,
+    hard,
+  ]);
 
   const questions = [
-    easy.sort((a, b) => Math.random() - 0.5).slice(0, 1),
-    medium.sort((a, b) => Math.random() - 0.5).slice(0, 1),
-    hard.sort((a, b) => Math.random() - 0.5).slice(0, 1),
+    easyQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 4),
+    mediumQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+    hardQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
   ];
 
   res.status(200).json({
