@@ -14,7 +14,6 @@ const filterObj = (obj, ...allowedFields) => {
 // ROUTE TO CHECK WHETHER ANSWER IS CORRECT AND UPDATE POINTS ACCORDINGLY
 exports.checkAnswers = async (req, res, next) => {
   try {
-    console.log(req.body);
     // 1) Filtered out unwanted fields names that are not allowed to be updated
     const filteredBody = filterObj(req.body, 'questionIdsAndAnswers');
 
@@ -69,7 +68,6 @@ exports.checkAnswers = async (req, res, next) => {
         runValidators: true,
       }
     );
-    console.log(updatedUser.score);
     // Send the final score as response
     res.status(200).json({
       status: 'success',

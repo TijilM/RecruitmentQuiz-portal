@@ -5,10 +5,6 @@ const User = require('./../models/userModel');
 const { response } = require('express');
 const Question = require('./../models/questionModel');
 
-const easyQuestions = [1, 2, 3, 4, 5, 6, 7];
-const mediumQuestions = [7, 8, 9, 10, 11, 12, 13];
-const hardQuestions = [14, 15, 16, 17, 18, 19, 20];
-
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -61,12 +57,6 @@ exports.signup = async (req, res, next) => {
       hard,
     ]);
 
-    // RANDOMIZE EASY, MEDIUM AND HARD QUESTIONS AND FIX THEIR NUMBER FOR THE USER
-    // const assignedQuestions = [
-    //   easyQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 4),
-    //   mediumQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
-    //   hardQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
-    // ];
     const assignedQuestions = [
       shuffleArray(easyQuestions).slice(0, 4),
       shuffleArray(mediumQuestions).slice(0, 3),
@@ -158,7 +148,6 @@ exports.protect = async (req, res, next) => {
       token = req.cookies.jwt;
     }
     if (!token) {
-      console.log('if');
       res.status(401).json({
         status: 'failed',
         message: 'You are not logged in! Please log in to get access.',
