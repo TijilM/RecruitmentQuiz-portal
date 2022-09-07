@@ -15,6 +15,16 @@ const signToken = (id) => {
   });
 };
 
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
   const cookieOptions = {
@@ -52,10 +62,15 @@ exports.signup = async (req, res, next) => {
     ]);
 
     // RANDOMIZE EASY, MEDIUM AND HARD QUESTIONS AND FIX THEIR NUMBER FOR THE USER
+    // const assignedQuestions = [
+    //   easyQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 4),
+    //   mediumQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+    //   hardQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+    // ];
     const assignedQuestions = [
-      easyQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 4),
-      mediumQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
-      hardQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+      shuffleArray(easyQuestions).slice(0, 4),
+      shuffleArray(mediumQuestions).slice(0, 3),
+      shuffleArray(hardQuestions).slice(0, 3),
     ];
 
     const newUser = await User.create({
