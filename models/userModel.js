@@ -45,6 +45,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  assignedQuestions: {
+    type: Array,
+  },
 });
 
 // CREATING AN OBJECT USER BASED ON THE USER SCHEMA

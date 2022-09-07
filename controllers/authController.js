@@ -39,6 +39,25 @@ const createSendToken = (user, statusCode, res) => {
 // ROUTE TO SIGN UP
 exports.signup = async (req, res, next) => {
   try {
+    // GET ALL QUESTIONS
+    const easy = Question.find({ difficulty: 'easy' });
+    const medium = Question.find({ difficulty: 'medium' });
+    const hard = Question.find({ difficulty: 'hard' });
+
+    // RESOLVE PROMISES SIMULTANEOUSLY TO REDUCE WAITING TIME
+    const [easyQuestions, mediumQuestions, hardQuestions] = await Promise.all([
+      easy,
+      medium,
+      hard,
+    ]);
+
+    // RANDOMIZE EASY, MEDIUM AND HARD QUESTIONS AND FIX THEIR NUMBER FOR THE USER
+    const assignedQuestions = [
+      easyQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 4),
+      mediumQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+      hardQuestions.sort((a, b) => Math.random() - 0.5).slice(0, 3),
+    ];
+
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -46,6 +65,7 @@ exports.signup = async (req, res, next) => {
       branch: req.body.branch,
       password: req.body.password,
       techStack: req.body.techStack,
+      assignedQuestions,
     });
 
     createSendToken(newUser, 201, res);
