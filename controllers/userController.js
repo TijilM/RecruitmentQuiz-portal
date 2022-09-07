@@ -23,7 +23,10 @@ exports.getUserProfile = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       data: {
-        user,
+        name: user.name,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        branch: user.branch,
       },
     });
   } catch (err) {
