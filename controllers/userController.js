@@ -10,8 +10,10 @@ exports.getMe = (req, res, next) => {
 // ROUTE TO GET USER DATA TO DISPLAY IN PROFILE PAGE
 exports.getUserProfile = async (req, res, next) => {
   try {
+    // FINDING CURRENT USER
     const user = await User.findById(req.params.id);
 
+    // IN CASE USER IS NOT FOUND
     if (!user) {
       res.status(400).json({
         status: 'failed',
@@ -20,6 +22,7 @@ exports.getUserProfile = async (req, res, next) => {
       return next();
     }
 
+    // SENDING DATA REQUIRED FOR PROFILE PAGE
     res.status(200).json({
       status: 'success',
       data: {
@@ -40,6 +43,7 @@ exports.getUserProfile = async (req, res, next) => {
 // ROUTE TO GET USER POINTS
 exports.getPoints = async (req, res, next) => {
   try {
+    // FINDING CURRENT USER
     const user = await User.findById(req.params.id);
 
     // IF USER ID DOES NOT MATCH
@@ -66,7 +70,10 @@ exports.getPoints = async (req, res, next) => {
 
 // ROUTE TO INCREMENT NUMBER OF CHEAT ATTEMPTS
 exports.cheatAttempt = async (req, res, next) => {
+  // FINDING CURRENT USER
   const user = await User.findById(req.params.id);
+
+  // IN CASE USER IS NOT FOUND
   if (!user) {
     res.status(400).json({
       status: 'failed',
@@ -75,7 +82,20 @@ exports.cheatAttempt = async (req, res, next) => {
     return next();
   }
 
+  // ASSIGNING NEW NUMBER OF CHEAT ATTEMPTS TO A VARIABLE
   const incrementedCheatAttempt = user.cheatAttempts + 1;
+
+  // SETTING ERROR MESSAGE
+  let message = '';
+  if (incrementedCheatAttempt == 1)
+    message = 'Do not attempt to change tabs, you will be disqualified';
+  else if (incrementedCheatAttempt == 2)
+    message = 'This is your final warning, do not attempt to change tabs';
+  else
+    message =
+      'You have been logged out on account of changing tabs multiple times';
+
+  // UPDATING CHEAT ATTEMPTS OF THE USER
   await User.findByIdAndUpdate(
     req.params.id,
     {
@@ -87,8 +107,10 @@ exports.cheatAttempt = async (req, res, next) => {
     }
   );
 
+  // SENDING NEW CHEAT ATTEMPTS AND CORRESPONDING MESSAGE
   res.status(200).json({
     status: 'success',
     cheatAttempts: incrementedCheatAttempt,
+    message,
   });
 };
