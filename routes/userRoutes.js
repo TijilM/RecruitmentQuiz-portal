@@ -7,6 +7,7 @@ const router = express.Router();
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 router.get('/logout', authController.logout);
+router.get('/leaderboard', userController.leaderboard);
 
 // USER MUST BE LOGGED IN TO ACCESS THE FOLLOWING ROUTES
 router.use(authController.protect);
