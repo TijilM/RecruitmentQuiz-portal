@@ -48,6 +48,12 @@ const userSchema = new mongoose.Schema({
   assignedQuestions: {
     type: Array,
   },
+  shift: {
+    type: Number,
+    required: [true, 'A user mush have a shift'],
+    min: [1, 'Shift can only be one or two'],
+    max: [2, 'Shift can only be one or two'],
+  },
 });
 
 // CREATING AN OBJECT USER BASED ON THE USER SCHEMA

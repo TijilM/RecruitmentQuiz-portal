@@ -11,6 +11,8 @@ const signToken = (id) => {
   });
 };
 
+let i = 0;
+
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -63,6 +65,10 @@ exports.signup = async (req, res, next) => {
       shuffleArray(hardQuestions).slice(0, 3),
     ];
 
+    let shift = 1;
+    // IF GLOBAL VARIABLR I IS EVEN USER IS ASSIGNED SHIFT TWO
+    if (i % 2 === 0) shift = 2;
+
     const newUser = await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -71,9 +77,12 @@ exports.signup = async (req, res, next) => {
       password: req.body.password,
       techStack: req.body.techStack,
       assignedQuestions,
+      shift,
     });
 
     createSendToken(newUser, 201, res);
+    // INCREMENTING i AFTER USER CREATION SO THAT SHIFTS ARE NOT DISTRIBUTED UNEVENLY IN CASE OF REQUEST FAILURES
+    i++;
   } catch (err) {
     res.status(404).json({
       status: 'failed',
