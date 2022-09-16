@@ -1,0 +1,264 @@
+body{
+    background-size: cover;
+}
+#myVideo {
+    position: fixed;
+    right: 0%;
+    left: 0%;
+    bottom: 0;
+    top: 0;
+    min-width:100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    object-fit: fill;
+  }
+  .navbar{
+    background:transparent;
+    height:70px;
+    position:fixed;
+    top:5;
+    left: 0;
+    width: 100%;
+    padding: 0%;
+    z-index: 50;
+    border: 0px;
+    display: flex;
+    justify-content: centre;
+}
+.text{
+    margin: 25px;
+    margin-bottom: 60px;
+    text-align: center;
+    margin-right: 5px;
+    font-family:'monospace', sans-serif;
+    
+    font-size: 0.5;
+    letter-spacing: 1px ;
+    color: white;
+}
+.motto{
+    position: absolute;
+    
+    color: white;
+}
+
+
+a{
+    text-decoration: none;
+    color: #A5F1E9;
+}
+
+.sign-up{
+    padding-right: 5%;
+    align-content: center;
+    
+}
+.login{
+    padding-right: 2%;
+}
+.rulebook{
+    padding-right: 2%;
+}
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+.imgcontainer {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.image{
+    position: absolute;
+    align-content: center;
+    height:auto;
+    max-width: 65%;
+    min-width: 10%;
+    min-height: 13%;
+    /* background-color: white; */
+    z-index: 20;
+    top: 27%;
+    right: 16%;
+    
+     display: inline-table;
+    bottom: 0%;
+    
+}
+/* @media only screen and (max-width:488 px){
+    .navbar
+        display: flex;
+        height: 200 px;
+        flex-direction: column;
+        text-align: center;
+    }
+} */
+
+* {
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.nav-list {
+	background:transparent;
+	margin: 0;
+	padding: 1rem 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.nav-items {
+	list-style: none;
+	margin-right: 2rem;
+	color: beige;
+}
+
+.nav-items a {
+	text-decoration: none;
+	color: white;
+}
+
+.nav-items:first-child {
+	margin-right: auto;
+	margin-left: 2rem;
+}
+
+.nav-btn {
+	font-size: 1rem;
+	background: rgb(14, 182, 212);
+	border: none;
+	outline: none;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+}
+
+.nav-btn:hover {
+	background-color: rgb(26, 68, 65);
+	color: beige;
+}
+
+.nav-items a:hover {
+	color: rgb(18, 118, 136);
+}
+
+
+
+
+
+/*social*/
+
+
+textarea {
+    resize: none;
+}
+
+
+
+.svg-inline--fa {
+  vertical-align: -0.200em;
+}
+
+.rounded-social-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.rounded-social-buttons .social-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 3.125rem;
+  height: 3.125rem;
+  border: 0.125rem solid transparent;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: #fefefe;
+  font-size: 1.5625rem;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 1.6875rem;
+  transition: all 0.5s ease;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-youtube, .fa-instagram {
+  font-size: 25px;
+}
+
+.rounded-social-buttons .social-button.facebook {
+  background: #3b5998;
+}
+
+.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+  color: #3b5998;
+  background: #fefefe;
+  border-color: #3b5998;
+}
+
+
+.rounded-social-buttons .social-button.linkedin {
+  background: #007bb5;
+}
+
+.rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+  color: #007bb5;
+  background: #fefefe;
+  border-color: #007bb5;
+}
+
+.rounded-social-buttons .social-button.youtube {
+  background: #bb0000;
+}
+
+.rounded-social-buttons .social-button.youtube:hover, .rounded-social-buttons .social-button.youtube:focus {
+  color: #bb0000;
+  background: #fefefe;
+  border-color: #bb0000;
+}
+
+.rounded-social-buttons .social-button.instagram {
+  background: #125688;
+}
+
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+  color: #125688;
+  background: #fefefe;
+  border-color: #125688;
+}
+
+.home-button {
+  display: inline-block;
+  background: #10ccd3;
+  color: #fff;
+  
+  padding: 10px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  text-decoration: none;
+}
+
+.home-button:hover {
+  box-shadow: 0px 37px 20px -15px rgba(0,0,0,0.2);
+  transform: translate(0px, -10px);
+}
+
+.wrap {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  /* padding: 200px; */
+}
