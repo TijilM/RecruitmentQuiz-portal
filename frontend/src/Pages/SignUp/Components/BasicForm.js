@@ -40,7 +40,7 @@ const BasicForm = () => {
                 <div class="bg bg2"></div>
                 <div class="bg bg3"></div>
                 <div className="form">
-                    <div >
+                    <div>
                         <img src={logo} alt="Logo" className="signup-logo"/>
                     </div>
                     <div className="right">
@@ -69,7 +69,7 @@ const BasicForm = () => {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
-                            <button typ="submit" className="button">Submit</button>
+                            <button type="submit" className="button">Submit</button>
                         </form>
                     </div>
                 </div>

@@ -30,7 +30,7 @@
 .button:hover{
   background-color: blue; 
   border: none;
-  color:  #000000;
+  color:  white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -120,7 +120,7 @@ input[type=text] {
   align-items: center;
   /* max-width: 450px; */
   height: 85vh;
-  width: 40vw;
+  /* width: 40vw; */
   margin: 0 auto;
   color: #DFF6FF;
   background-color: #000000;
@@ -128,6 +128,7 @@ input[type=text] {
   font-family: 'Montserrat';
   font-size: 16px;
   vertical-align:middle;
+  border-radius: 15px;
 }
 
 
