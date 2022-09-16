@@ -1,0 +1,100 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #DFF6FF;
+}
+
+.test-page {
+    display: flex;
+    position: relative;
+}
+
+.test-left-aside {
+    width: 17%;
+    min-height: 100vh;
+    background-color: #06283D;
+}
+
+.test-main {
+    width: 62%;
+    min-height: 100vh;
+}
+
+.test-right-aside {
+    width: 21%;
+    min-height: 100vh;
+    background-color: #06283D;
+}
+
+.test-logo {
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+}
+
+.test-leftAside-line {
+
+    border: none;
+    background-color: white;
+    height: 1px;
+}
+
+.test-leftAside-bottom {
+    position: absolute;
+    bottom: 20px;
+    width: 17%;
+    /* marign-top: auto; */
+}
+
+.test-user {
+    /* margin-bottom: 100%;
+    flex-grow: 1; */
+    text-align: center;
+}
+
+.test-name {
+    color: white;
+    font-size: 1.5vw;
+}
+
+.test-contact {
+    /* position: absolute;
+    bottom: 50px; */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.test-email {
+    color: #ffffff50;
+    font-size: 1vw;
+}
+
+.test-logout {
+    display: block;
+    margin: auto auto;
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+}
+
+.test-timer {
+    height: 25vh;
+    color: #ffffff50;
+    text-align: center;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #032133;
+}
+
+.test-time {
+    margin: 10px auto;
+    color: white;
+    font-size: 3.5vw;
+
+}
+
+.test-option {
+    display: block;
+}

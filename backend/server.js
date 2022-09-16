@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
 const app = require('./app');
 
 // IN CASE OF UNCAUGHT_EXCEPTION
@@ -28,7 +27,7 @@ mongoose
   .then(() => console.log('DB connection successful!'));
 
 //   STARTING SERVER
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
