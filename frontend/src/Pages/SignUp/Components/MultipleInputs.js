@@ -15,7 +15,7 @@ const MultipleInputs = () => {
             
             try {
                 const resp = await axios.post(url, { name: name, email: email,
-                                                        number:number,branch:branch,aNumber:aNumber});
+                                                        phoneNumber:number,branch:branch,applicationNumber:aNumber});
                 console.log(resp.data);
             } catch (error) {
                 console.log(error);

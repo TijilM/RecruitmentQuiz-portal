@@ -47,6 +47,7 @@ const createSendToken = (user, statusCode, res) => {
 // ROUTE TO SIGN UP
 exports.signup = async (req, res, next) => {
   try {
+    console.log(req.body)
     // GET ALL QUESTIONS
     const easy = Question.find({ difficulty: 'easy' });
     const medium = Question.find({ difficulty: 'medium' });
