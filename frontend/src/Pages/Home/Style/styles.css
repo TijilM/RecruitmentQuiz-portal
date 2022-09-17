@@ -1,13 +1,27 @@
 body{
     background-size: cover;
 }
+
+
+
+
+/* .top-bg-section {
+  position: relative;
+  height: 50%;
+} */
+
+.bottom-bg-section {
+  background-color: #47B5FF;
+  padding-top: 20px;
+}
+
 #myVideo {
-    position: fixed;
+    position: absolute;
     right: 0%;
     left: 0%;
     bottom: 0;
     top: 0;
-    min-width:100%;
+    width: 100vw;
     height: 100%;
     z-index: -1;
     background-size: cover;
@@ -129,16 +143,17 @@ a{
 
 .nav-btn {
 	font-size: 1rem;
-	background: rgb(14, 182, 212);
+	background: rgb(10, 123, 143);
 	border: none;
 	outline: none;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
+  border-radius: 10px;
 }
 
 .nav-btn:hover {
 	background-color: rgb(26, 68, 65);
-	color: beige;
+	color: white;
 }
 
 .nav-items a:hover {
@@ -249,6 +264,7 @@ textarea {
   cursor: pointer;
   transition: all ease-in-out 300ms;
   text-decoration: none;
+  margin-bottom: 10vh;
 }
 
 .home-button:hover {
@@ -261,4 +277,40 @@ textarea {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
   /* padding: 200px; */
+}
+
+.why-ccs-section {
+  max-width: 60%;
+  margin: 10px auto;
+  color: #06283D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.why-ccs-heading {
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.why-ccs-list {
+  list-style-type: none;
+}
+
+.why-ccs-list li {
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.why-ccs-list li h3{
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.why-ccs-list li div {
+  font-family: Arial, Helvetica, sans-serif;
 }

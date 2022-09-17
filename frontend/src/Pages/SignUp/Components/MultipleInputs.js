@@ -9,6 +9,7 @@ const MultipleInputs = () => {
   const [number, setNumber] = useState("");
   const [branch, setBranch] = useState("");
   const [aNumber, setAnumber] = useState("");
+  const [message, setMessage] = useState("");
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -22,7 +23,14 @@ const MultipleInputs = () => {
           applicationNumber: aNumber,
         });
         console.log(resp.data);
+        setName("")
+        setEmail("")
+        setNumber("")
+        setBranch("")
+        setAnumber("")
+        setMessage("Registered Successfully")
       } catch (error) {
+        setMessage("User already exists")
         console.log(error);
       }
 
@@ -102,6 +110,7 @@ const MultipleInputs = () => {
               <button typ="submit" className="button">
                 Submit
               </button>
+              <small>{message}</small>
             </form>
           </div>
         </div>
