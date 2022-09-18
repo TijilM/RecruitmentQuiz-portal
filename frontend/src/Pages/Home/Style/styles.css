@@ -5,13 +5,12 @@ body{
 
 
 
-/* .top-bg-section {
-  position: relative;
-  height: 50%;
-} */
+.top-bg-section {
+  height: 100vh;
+}
 
 .bottom-bg-section {
-  background-color: #47B5FF;
+  background-color: #10ccd3;
   padding-top: 20px;
 }
 
