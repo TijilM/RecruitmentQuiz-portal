@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import logo from "../Assets/logo.png";
 import axios from "axios";
-// const url = "http://127.0.0.1:8000/api/v1/users/signup";
-const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
-const MultipleInputs = () => {
+const url = "http://127.0.0.1:8000/api/v1/users/signup";
+// const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
+const SignupForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -119,4 +119,4 @@ const MultipleInputs = () => {
   );
 };
 
-export default MultipleInputs;
+export default SignupForm;

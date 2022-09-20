@@ -1,5 +1,4 @@
-import BasicForm from './Components/BasicForm'
-import MultipleInputs from './Components/MultipleInputs';
+import SignupForm from './Components/Signup';
 import "./Style/signup.css"
 
 
@@ -7,8 +6,7 @@ function Signup() {
   
   return(
     <div>
-      {/* <BasicForm/> */}
-      <MultipleInputs/>
+      <SignupForm />
     </div>
   )
   
