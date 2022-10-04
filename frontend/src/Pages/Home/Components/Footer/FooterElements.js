@@ -36,8 +36,9 @@ export const FooterContainer=styled.footer`
       
    export const FooterLinkTitle=styled.h1`
    color:#fff;
-   font-size: 20px;
-   font-weight:5px;
+   font-size: 2.3vw;
+   font-weight:4px;
+   font-family:"Montserrat";
    margin-bottom: 30px;
 
    `
@@ -56,6 +57,6 @@ export const SocialIcons=styled.div`
 display:flex;
 justify-content: space-between;
 align-items:center;
-width:240px;
+width:25vw;
 `
 
