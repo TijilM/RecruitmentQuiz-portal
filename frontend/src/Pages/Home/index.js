@@ -9,8 +9,8 @@ import styles from "./Style/home.module.css"
 function Home(){
     return (
         <div className="home-complete-page">
-            <Navbar />
-            <Hero />
+            {/* <Navbar /> */}
+            {/* <Hero /> */}
             <WhyCCS />
             <Carousel />
             <Footer />

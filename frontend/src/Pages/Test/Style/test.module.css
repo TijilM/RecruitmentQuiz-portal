@@ -1,8 +1,8 @@
-body {
-    /* width: 100vw; */
+/* body {
+    width: 100vw;
     min-height: 100vh;
     background-color: #DFF6FF;
-}
+} */
 
 .test-page {
     display: flex;
