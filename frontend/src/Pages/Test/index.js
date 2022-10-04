@@ -1,7 +1,7 @@
 import LeftAside from "./Components/LeftAside"
 import Main from "./Components/Main"
 import RightAside from "./Components/RightAside"
-import "./Style/test.css"
+import styles from "./Style/test.module.css"
 
 function Test(){
     return (

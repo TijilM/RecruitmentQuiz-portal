@@ -1,5 +1,5 @@
 import SignupForm from './Components/Signup';
-import "./Style/signup.css"
+import styles from "./Style/signup.module.css"
 
 
 function Signup() {

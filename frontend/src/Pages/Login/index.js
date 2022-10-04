@@ -1,5 +1,5 @@
 import LoginForm from './Components/Login'
-import "./Style/login.css"
+import styles from "./Style/login.module.css"
 
 
 function Login() {
