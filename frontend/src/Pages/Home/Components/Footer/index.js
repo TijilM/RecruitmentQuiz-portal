@@ -1,0 +1,36 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faFacebook,faLinkedin,faYoutube,faInstagram,faDiscord} from "@fortawesome/free-brands-svg-icons"
+
+
+import {FooterContainer,FooterWrap,FooterLinksContainer,FooterLinksWrapper,FooterLinkTitle} from './FooterElements'
+import{SocialIcons,SocialMedia} from './FooterElements'
+
+function Footer(){
+    return (
+        <FooterContainer>
+        <FooterWrap>
+        <FooterLinksContainer>
+        <FooterLinksWrapper>
+        
+             <FooterLinkTitle>Connect With Us &hearts; 
+             </FooterLinkTitle>
+            
+        
+        </FooterLinksWrapper></FooterLinksContainer>
+        <FooterLinksWrapper>
+        <SocialMedia>
+        
+              
+                 <SocialIcons>
+                 <a className="social-button facebook" href="https://www.facebook.com/CCSTU/?ref=br_rs" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a>
+                 <a className="social-button linkedin" href="https://www.linkedin.com/company/ccs-tiet/" target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a>
+                 <a className="social-button youtube" href="https://youtube.com/channel/UCc-F6rlsDdHAKfSiPJEnDLg" target="_blank"><FontAwesomeIcon icon={faYoutube} /></a>
+                 <a className="social-button instagram" href="http://instagram.com/ccs_tiet?utm_source=qr" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
+                 </SocialIcons>
+                
+        </SocialMedia>
+        </FooterLinksWrapper></FooterWrap></FooterContainer>
+    )
+}
+
+export default Footer
