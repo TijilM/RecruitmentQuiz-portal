@@ -72,7 +72,9 @@
     padding: 7px 15px;
     height:80px;
     font-size: 1.3vw;
+    font-family: "Montserrat";
 }
+
 
 .navLinks{
     color:rgb(201, 176, 176);
@@ -96,7 +98,7 @@
     border-radius: 4vh;
     white-space: nowrap;
     padding: 10px 22px;
-    
+    font-family: "Montserrat";
     font-size: 1.5vw;
     outline: none;
     border: none;
