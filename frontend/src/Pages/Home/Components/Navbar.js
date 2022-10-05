@@ -17,7 +17,7 @@ function Navbar() {
         <div className={styles.mobileIcon}>
         
     </div>
-        <div className={styles.navMenu}></div>
+        <div className={styles.navMenu}>
         
         <li className={styles.navItem}>
         <div className={styles.navLinks}><a href="#">Why CCS?</a></div>
@@ -33,7 +33,7 @@ function Navbar() {
         <a href="#">Sign Up!</a>
         
         
-        </nav>
+        </nav></div>
         
         </div>
         
