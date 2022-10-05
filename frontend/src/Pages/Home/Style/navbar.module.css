@@ -75,7 +75,7 @@
 }
 
 .navLinks{
-    color:#fff;
+    color:rgb(201, 176, 176);
     display:flex;
     align-items:center;
     text-decoration:none;
@@ -91,7 +91,8 @@
     margin-top: 5vh;
     margin-bottom: 5vh;
     align-items: center;
-    background: #01bf71;
+    background: #2da192;
+   
     border-radius: 4vh;
     white-space: nowrap;
     padding: 10px 22px;
