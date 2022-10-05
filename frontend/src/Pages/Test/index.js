@@ -5,14 +5,14 @@ import styles from "./Style/test.module.css"
 
 function Test(){
     return (
-        <div className="test-page">
-            <div className="test-left-aside">
+        <div className={styles.testPage}>
+            <div className={styles.testLeftAside}>
                 <LeftAside />
             </div>
-            <div className="test-main">
+            <div className={styles.testMain}>
                 <Main />
             </div>
-            <div className="test-right-aside">
+            <div className={styles.testRightAside}>
                 <RightAside />
             </div>
         </div>
