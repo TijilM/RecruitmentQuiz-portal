@@ -8,7 +8,7 @@ function Hero() {
   return (
     
     <div className={styles.HeroContainer}>
-    <div className={styles.Herobg}>
+    <div className={styles.Herobg}><div className={styles.logo}></div>
     </div>
     </div>
         

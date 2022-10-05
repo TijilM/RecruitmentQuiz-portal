@@ -10,7 +10,7 @@ import styles from "./Style/home.module.css"
 function Home(){
     return (
         <div>
-            {/* <Navbar /> */}
+            <Navbar /> 
             <Hero />   
             <WhyCCS />
             <Carousel />
