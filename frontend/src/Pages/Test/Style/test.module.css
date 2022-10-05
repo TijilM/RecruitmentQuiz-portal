@@ -4,72 +4,72 @@
     background-color: #DFF6FF;
 } */
 
-.test-page {
+.testPage {
     display: flex;
     position: relative;
 }
 
-.test-left-aside {
+.testLeftAside {
     width: 17%;
     min-height: 100vh;
     background-color: #06283D;
 }
 
-.test-main {
+.testMain {
     width: 62%;
     min-height: 100vh;
 }
 
-.test-right-aside {
+.testRightAside {
     width: 21%;
     min-height: 100vh;
     background-color: #06283D;
 }
 
-.test-logo {
+.testLogo {
     display: block;
     width: 85%;
     margin: 10px auto;
 }
 
-.test-leftAside-line {
+.testLeftAsideLine {
 
     border: none;
     background-color: white;
     height: 1px;
 }
 
-.test-leftAside-bottom {
+.testLeftAsideBottom {
     position: absolute;
     bottom: 20px;
     width: 17%;
     /* marign-top: auto; */
 }
 
-.test-user {
+.testUser {
     /* margin-bottom: 100%;
     flex-grow: 1; */
     text-align: center;
 }
 
-.test-name {
+.testName {
     color: white;
     font-size: 1.5vw;
 }
 
-.test-contact {
+.testContact {
     /* position: absolute;
     bottom: 50px; */
     margin-bottom: 20px;
     text-align: center;
 }
 
-.test-email {
+.testEmail {
     color: #ffffff50;
     font-size: 1vw;
 }
 
-.test-logout {
+.testLogout {
     display: block;
     margin: auto auto;
     margin-top: 20px;
@@ -77,7 +77,7 @@
     height: 40px;
 }
 
-.test-timer {
+.testTimer {
     height: 25vh;
     color: #ffffff50;
     text-align: center;
@@ -88,13 +88,13 @@
     background-color: #032133;
 }
 
-.test-time {
+.testTime {
     margin: 10px auto;
     color: white;
     font-size: 3.5vw;
 
 }
 
-.test-option {
+.testOption {
     display: block;
 }
