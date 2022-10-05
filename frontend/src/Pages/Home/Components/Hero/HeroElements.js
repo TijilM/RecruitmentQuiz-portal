@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import bg from '../../Assets/Landing.png'
 export const HeroContainer=styled.div`
-background: #0c0c0c;
+background: transparent;
 display:flex;
 justify-content:center;
 align-items: center;
