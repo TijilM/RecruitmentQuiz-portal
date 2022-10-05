@@ -11,7 +11,7 @@ function Home(){
     return (
         <div>
             {/* <Navbar /> */}
-            {/* <Hero />   */}
+            <Hero />   
             <WhyCCS />
             <Carousel />
             <Footer />
