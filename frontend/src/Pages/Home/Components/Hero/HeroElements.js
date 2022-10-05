@@ -14,10 +14,9 @@ z-index:1;
 export const HeroBg=styled.div`
 background-image: url(${bg});
 position: absolute;
-top:0;
-right:0;
-bottom:0;
-left:0;
+background-repeat:no-repeat;
+background-size:contain;
+background-position:center;
 width:100%;
 height:100%;
 overflow:hidden;
