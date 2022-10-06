@@ -17,13 +17,13 @@
 
 
 .navbarContainer{
-    @import url('https://fonts.googleapis.com/css?family=Montserrat');
     text-decoration: none;
     font-size: 1.3vw;
     font-family: "Montserrat";
    
-    background-color: rgb(124, 192, 192);
-    opacity: 60%;
+    /* background-color: rgb(124, 192, 192); */
+    background-color: black;
+    /* opacity: 60%; */
   display:flex;
   justify-content: space-between;
   
@@ -75,7 +75,6 @@
 }
 
 .navItem{
-    @import url('https://fonts.googleapis.com/css?family=Montserrat');
     text-decoration: none;
     padding: 7px 15px;
     height:5vw;
@@ -89,7 +88,8 @@
 
 .navLinks{
     text-decoration: none;
-    color: black;
+    /* color: black; */
+    color: #87cfc6;
     display:flex;
     align-items:center;
     text-decoration:none;
