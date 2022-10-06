@@ -1,5 +1,7 @@
 import React from "react"
 import styles from "../Style/navbar.module.css"
+import WhyCCS from "./WhyCCS"
+import Carousel from "./Carousel"
 
 
 function Navbar() {
@@ -20,12 +22,12 @@ function Navbar() {
         <div className={styles.navMenu}>
         
         <li className={styles.navItem}>
-        <div className={styles.navLinks}><a href="#">Why CCS?</a></div>
+        <div className={styles.navLinks}><a href="#whyccsid">Why CCS?</a></div>
         
         
         </li>
         <li className={styles.navItem}>
-        <div className={styles.navLinks}><a href="#">Gallery</a></div>
+        <div className={styles.navLinks}><a href="#carouselid">Gallery</a></div>
         
         
         </li>
