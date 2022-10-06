@@ -11,7 +11,7 @@ function Navbar() {
         <nav>
     
         <div className= {styles.navbarContainer}>
-        <div className={styles.container} ><TypeAnimation
+        <div className={styles.navBtn} ><TypeAnimation
         sequence={[
           'Learn.',
           1000, 
@@ -36,12 +36,12 @@ function Navbar() {
         <div className={styles.navMenu}>
         
         <li>
-        <div ><a className={styles.navLinks}href="#whyccsid">Why CCS?</a></div>
+        <div ><a className={styles.navLinks}>Why CCS?</a></div>
         
         
         </li>
         <li>
-        <div ><a className={styles.navLinks}href="#carouselid">Gallery</a></div>
+        <div ><a className={styles.navLinks}>Gallery</a></div>
         
         
         </li>

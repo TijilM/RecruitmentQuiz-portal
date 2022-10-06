@@ -29,7 +29,6 @@
   
   z-index: 1;
   width: 100%;
-  padding: 0.24px;
 
 }
 
@@ -103,6 +102,7 @@
 
 .navBtn{
     text-decoration: none;
+    opacity: 100%;
     display:flex;
     margin-top: 5vh;
     margin-bottom: 5vh;
