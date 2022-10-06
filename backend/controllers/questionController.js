@@ -21,13 +21,20 @@ exports.createQuestion = async (req, res, next) => {
 };
 
 exports.getQuestions = async (req, res, next) => {
-  // GETTING THE LOGGED IN USER
-  const user = await User.findById(req.params.id);
+  try {
+    // GETTING THE LOGGED IN USER
+    const user = await User.findById(req.params.id);
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      questions: user.assignedQuestions,
-    },
-  });
+    res.status(200).json({
+      status: 'success',
+      data: {
+        questions: user.assignedQuestions,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'failed',
+      err: err.message,
+    });
+  }
 };
