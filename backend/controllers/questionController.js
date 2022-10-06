@@ -24,11 +24,21 @@ exports.getQuestions = async (req, res, next) => {
   try {
     // GETTING THE LOGGED IN USER
     const user = await User.findById(req.params.id);
+    let assignedQuestions = [];
+
+    for (const questionNo of user.assignedQuestions) {
+      const currentQuestion = Question.find({
+        questionNumber: questionNo,
+      });
+      assignedQuestions.push(currentQuestion);
+    }
+
+    assignedQuestions = await Promise.all(assignedQuestions);
 
     res.status(200).json({
       status: 'success',
       data: {
-        questions: user.assignedQuestions,
+        questions: assignedQuestions,
       },
     });
   } catch (err) {
