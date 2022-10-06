@@ -36,12 +36,12 @@ function Navbar() {
         <div className={styles.navMenu}>
         
         <li>
-        <div className={styles.navLinks}><a href="#whyccsid">Why CCS?</a></div>
+        <div ><a className={styles.navLinks}href="#whyccsid">Why CCS?</a></div>
         
         
         </li>
         <li>
-        <div className={styles.navLinks}><a href="#carouselid">Gallery</a></div>
+        <div ><a className={styles.navLinks}href="#carouselid">Gallery</a></div>
         
         
         </li>
