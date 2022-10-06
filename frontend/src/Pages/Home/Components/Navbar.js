@@ -2,6 +2,7 @@ import React from "react"
 import styles from "../Style/navbar.module.css"
 import WhyCCS from "./WhyCCS"
 import Carousel from "./Carousel"
+import { TypeAnimation } from 'react-type-animation';
 
 
 function Navbar() {
@@ -10,8 +11,21 @@ function Navbar() {
         <nav>
     
         <div className= {styles.navbarContainer}>
-        <div className={styles.navLogo} >
-        <a href="https://www.ccstiet.com/">Learn . Code . Collaborate .</a>
+        <div className={styles.container} ><TypeAnimation
+        sequence={[
+          'Learn.',
+          1000, 
+          'Code.', 
+          2000, 
+          'Collaborate.',
+          
+        ]}
+        wrapper="div"
+        cursor={true}
+        repeat={Infinity}
+        style={{ fontSize: '2vw' }}
+      />
+       
         
         
         </div>
@@ -21,21 +35,17 @@ function Navbar() {
     </div>
         <div className={styles.navMenu}>
         
-        <li className={styles.navItem}>
+        <li>
         <div className={styles.navLinks}><a href="#whyccsid">Why CCS?</a></div>
         
         
         </li>
-        <li className={styles.navItem}>
+        <li>
         <div className={styles.navLinks}><a href="#carouselid">Gallery</a></div>
         
         
         </li>
-        <nav className={styles.navBtn}>
-        <a href="#">Sign Up!</a>
-        
-        
-        </nav></div>
+       </div>
         
         </div>
         
@@ -48,3 +58,4 @@ function Navbar() {
 }
 
 export default Navbar
+
