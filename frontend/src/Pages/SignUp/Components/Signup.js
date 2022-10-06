@@ -1,6 +1,6 @@
 import Form from "./Form";
 import Vector from "./Vector";
-import classes from "../Style/Signup.module.css";
+import classes from "../Style/signup.module.css";
 
 const SignupForm = (props) => {
   return (

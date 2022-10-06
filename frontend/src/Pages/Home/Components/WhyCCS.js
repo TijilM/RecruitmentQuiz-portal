@@ -10,7 +10,7 @@ import img6 from "../Assets/whyccs6.png";
 
 function WhyCCS() {
   return (
-    <div className={styles.whyccsContainer}>
+    <div className={styles.whyccsContainer} id="whyccsid">
       <div className={styles.whyccsSection}>
         <div className={styles.spacer}></div>
         <h1 className={styles.mainHeading}>Why CCS?</h1>

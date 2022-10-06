@@ -22,7 +22,7 @@ import img4 from "../Assets/img4.jpg"
 function Carousel() {
   return (
     <>
-      <Swiper
+      <Swiper id="carouselid"
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}

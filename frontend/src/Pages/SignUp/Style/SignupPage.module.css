@@ -1,12 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 /* base styles */
-* {
-  margin: 0;
-  /* font-family: Arial, Helvetica, sans-serif; */
-  /* color: #333; */
-  box-sizing: border-box;
-}
+
 .signup-logo {
   border-radius: 4px;
   padding: 5px;
@@ -134,13 +129,7 @@ input[type="text"] {
     display: none;
   }
 }
-html {
-  height: 100%;
-}
 
-body {
-  margin: 0;
-}
 
 .bg {
   animation: slide 3s ease-in-out infinite alternate;
