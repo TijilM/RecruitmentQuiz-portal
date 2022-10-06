@@ -33,6 +33,7 @@ exports.getQuestions = async (req, res, next) => {
       assignedQuestions.push(currentQuestion);
     }
 
+    // RESOLVING ALL QUESTIONS AT THE SAME TIME FOR FASTER RESPONSE
     assignedQuestions = await Promise.all(assignedQuestions);
 
     res.status(200).json({
