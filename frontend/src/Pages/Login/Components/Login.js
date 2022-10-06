@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import logo from "../Assets/logo.png";
 import axios from "axios";
+
+axios.defaults.withCredentials = true;
+
 const url = "http://127.0.0.1:8000/api/v1/users/login";
 // const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
 const LoginForm = () => {
@@ -19,7 +22,7 @@ const LoginForm = () => {
         });
         console.log(resp.data);
         setMessage("Logging in...")
-        window.location.href = "/instructions";
+        // window.location.href = "/instructions";
       } catch (error) {
         setMessage("Invalid email or password")
         console.log(error);

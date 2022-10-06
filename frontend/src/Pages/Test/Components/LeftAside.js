@@ -10,7 +10,7 @@ function LeftAside(){
                 <div className={styles.testEmail}>ADITYAPARMAR@GMAIL.COM</div>
             </div>
 
-            <div className={styles.testLeftAdieBottom}>
+            <div className={styles.testLeftAsideBottom}>
                 <div className={styles.testContact}>
                     <div className={styles.testName}>CONTACT US</div>
                     <div className={styles.testEmail}>TECHSUPPORT@GMAIL.COM</div>
