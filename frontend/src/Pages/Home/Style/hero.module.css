@@ -36,14 +36,14 @@ body {
 
 
 .button {
-    width: 250px;
-    height: 60px;
-    font-size: 30px;
+    width: 20vw;
+    height: 6vw;
+    font-size: 1.5vw;
     color: white;
     background-color: #1E1E6C;
-    border-radius: 21px;
+    border-radius: 20vw;
     display: block;
-    margin: 40px;
+    margin-top: 5vh;
 }
 
 
