@@ -18,17 +18,17 @@ function Footer(){
         
         </FooterLinksWrapper></FooterLinksContainer>
         <FooterLinksWrapper>
-        <SocialMedia>
+        
         
               
                  <SocialIcons>
-                 <a className="social-button facebook" href="https://www.facebook.com/CCSTU/?ref=br_rs" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a>
-                 <a className="social-button linkedin" href="https://www.linkedin.com/company/ccs-tiet/" target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a>
-                 <a className="social-button youtube" href="https://youtube.com/channel/UCc-F6rlsDdHAKfSiPJEnDLg" target="_blank"><FontAwesomeIcon icon={faYoutube} /></a>
-                 <a className="social-button instagram" href="http://instagram.com/ccs_tiet?utm_source=qr" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
+                 <a style={{color:"white"}} className="social-button facebook" href="https://www.facebook.com/CCSTU/?ref=br_rs" target="_blank"><FontAwesomeIcon icon={faFacebook} /></a>
+                 <a style={{color:"white"}} className="social-button linkedin" href="https://www.linkedin.com/company/ccs-tiet/" target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a>
+                 <a style={{color:"white"}} className="social-button youtube" href="https://youtube.com/channel/UCc-F6rlsDdHAKfSiPJEnDLg" target="_blank"><FontAwesomeIcon icon={faYoutube} /></a>
+                 <a style={{color:"white"}} className="social-button instagram" href="http://instagram.com/ccs_tiet?utm_source=qr" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
                  </SocialIcons>
                 
-        </SocialMedia>
+      
         </FooterLinksWrapper></FooterWrap></FooterContainer>
     )
 }
