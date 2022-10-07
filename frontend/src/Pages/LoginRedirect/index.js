@@ -2,7 +2,7 @@ import styles from "./Style/loginredirect.module.css";
 
 function LoginRedirect() {
   
-  return(<div><div className={styles.ovalcont}>
+  return(<div ><div className={styles.ovalcont}>
     <div className={styles.oval}>
     
     </div>
