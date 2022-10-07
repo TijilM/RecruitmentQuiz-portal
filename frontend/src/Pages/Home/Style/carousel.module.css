@@ -1,8 +1,8 @@
-
 .swiper {
   width: 70%;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin: 0;
 }
 
 .swiper-slide {
@@ -15,4 +15,11 @@
 .swiperSlide img {
   display: block;
   width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(215 233 255);
 }
