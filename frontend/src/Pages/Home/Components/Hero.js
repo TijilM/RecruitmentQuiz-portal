@@ -8,7 +8,7 @@ function Hero() {
   return (
     
     <div className={styles.heroContainer}>
-      <img src={bgImg} alt="bg-image" className={styles.heroBg}/>
+      <img src={bgImg} alt="hero-bg-img" className={styles.heroBg}/>
       <img src={logo} alt="ccs-logo" className={styles.logo}/>
     
       <div className={styles.buttons}> 

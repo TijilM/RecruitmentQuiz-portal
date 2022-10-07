@@ -5,7 +5,6 @@ import Carousel from "./Components/Carousel"
 import Footer from "./Components/Footer/index"
 import Hero from "./Components/Hero"
 
-import styles from "./Style/home.module.css"
 
 function Home(){
     return (
