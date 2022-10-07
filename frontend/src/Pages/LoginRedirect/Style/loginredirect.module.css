@@ -1,22 +1,25 @@
 .ovalcont{
   margin-top: 30vh;
-  margin-left: 30vw;
+  margin-left: 38vw;
   width:20vw;
   align-items: center;
 
 }
+
 .ovaltext{
   border-radius: 20vw;
+  margin-top:5vh;
   background-color: rgb(174, 226, 219);
-  font-size: 1.3vw;
+  font-size: 1.5vw;
+  align-items: center;
   justify-content: center;
-  width:29vw;
+  width:100vw;
   padding: 3vw;
   display: flex;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "monospace";
 }
   .oval {
-    width: 160px;
+    width: 20vw;
     display: flex;
     height: 80px;
     border: rgba(115, 202, 218, 0.692) solid .5vmin;
@@ -29,7 +32,7 @@
   
   .oval:before {
     content: "";
-    width: 160px;
+    width: 20vw;
     height: 80px;
     border: rgb(147, 192, 223) solid .5vmin;
     border-radius: 50%;
@@ -42,7 +45,7 @@
   
   .oval:after {
     content: "";
-    width: 160px;
+    width: 20vw;
     height: 80px;
     border: rgb(48, 192, 125) solid .5vmin;
     border-radius: 50%;
