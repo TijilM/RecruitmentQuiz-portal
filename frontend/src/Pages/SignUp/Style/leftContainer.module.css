@@ -52,3 +52,10 @@
   position: absolute;
   right: 10px;
 }
+
+@media (max-width: 768px) {
+  .leftContainer {
+    border-radius: 40px;
+    width: 100%
+  }
+}

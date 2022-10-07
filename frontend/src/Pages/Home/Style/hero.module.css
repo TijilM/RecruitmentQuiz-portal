@@ -48,6 +48,7 @@ body {
     border-radius: 20vw;
     display: block;
     margin-top: 5vh;
+    cursor: pointer;
 }
 
 

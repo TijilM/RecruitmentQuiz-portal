@@ -41,12 +41,12 @@ function Carousel() {
       >
         {/* <SwiperSlide><img src={img1} alt="ipsum1" /></SwiperSlide>
         <SwiperSlide><img src={img2} alt="ipsum2" /></SwiperSlide> */}
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={img1} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={img2} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={img3} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src={img4} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
+        {/* <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide> */}
 
       </Swiper>
     </>
