@@ -45,7 +45,7 @@ const LeftContainer = (props) => {
 
   return (
     <div className={styles.leftContainer}>
-      {/* <img src={logo} alt="CCS Logo" className={styles.logo} /> */}
+     
       <form action="" onSubmit={submitForm} className={styles.leftContainerForm}>
         <h3 className={styles.heading}>Register Here</h3>
         <input
