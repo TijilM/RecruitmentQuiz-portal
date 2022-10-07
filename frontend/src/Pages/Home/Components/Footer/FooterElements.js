@@ -13,7 +13,7 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 export const FooterLinksContainer = styled.div`
