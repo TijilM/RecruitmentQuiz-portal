@@ -13,7 +13,7 @@ function WhyCCS() {
     <div className={styles.whyccsContainer} id="whyccsid">
       <div className={styles.whyccsSection}>
         <div className={styles.spacer}></div>
-        <h1 className={styles.mainHeading}>Why CCS?</h1>
+        {/* <h1 className={styles.mainHeading}>Why CCS?</h1> */}
         <div className={styles.spacer}></div>
         <div className="why-ccs-list">
           <Fade left>

@@ -13,13 +13,12 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 export const FooterLinksContainer = styled.div`
   display: flex;
   justify-content: center;
-
   @media screen and (max-width: 800px) {
     padding-top: 32px;
   }

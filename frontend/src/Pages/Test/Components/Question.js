@@ -1,5 +1,6 @@
 import styles from "../Style/test.module.css"
 
+
 function Question(props){
     console.log(props.qid)
     return (

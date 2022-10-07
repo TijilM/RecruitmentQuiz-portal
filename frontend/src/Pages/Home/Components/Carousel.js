@@ -12,17 +12,16 @@ import styles from "../Style/carousel.module.css";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
 
-import img1 from "../Assets/img1.jpg"
-import img2 from "../Assets/img2.jpg"
-import img3 from "../Assets/img3.jpg"
-import img4 from "../Assets/img4.jpg"
-
-
+import img1 from "../Assets/img1.jpg";
+import img2 from "../Assets/img2.jpg";
+import img3 from "../Assets/img3.jpg";
+import img4 from "../Assets/img4.jpg";
 
 function Carousel() {
   return (
-    <>
-      <Swiper id="carouselid"
+    <div class={styles.center}>
+      <Swiper
+        id="carouselid"
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -41,16 +40,23 @@ function Carousel() {
       >
         {/* <SwiperSlide><img src={img1} alt="ipsum1" /></SwiperSlide>
         <SwiperSlide><img src={img2} alt="ipsum2" /></SwiperSlide> */}
-        <SwiperSlide className={styles.swiperSlide}><img src={img1} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src={img2} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src={img3} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
-        <SwiperSlide className={styles.swiperSlide}><img src={img4} alt="ipsum3" className={styles.carouselImage}/></SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>
+          <img src={img1} alt="ipsum3" className={styles.carouselImage} />
+        </SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>
+          <img src={img2} alt="ipsum3" className={styles.carouselImage} />
+        </SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>
+          <img src={img3} alt="ipsum3" className={styles.carouselImage} />
+        </SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>
+          <img src={img4} alt="ipsum3" className={styles.carouselImage} />
+        </SwiperSlide>
         {/* <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
         <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide> */}
-
       </Swiper>
-    </>
+    </div>
   );
 }
 
-export default Carousel
+export default Carousel;
