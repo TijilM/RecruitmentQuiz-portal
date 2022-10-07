@@ -22,7 +22,7 @@ const LeftContainer = (props) => {
     e.preventDefault();
 
     if (name && email && number && branch && aNumber) {
-      setButton(<button type="submit" className={styles.button}><FontAwesomeIcon icon={faSpinner} className="fa-spin" disabled/></button>)
+      setButton(<button type="submit" className={styles.button} disabled><FontAwesomeIcon icon={faSpinner} className="fa-spin"/></button>)
       try {
         const resp = await axios.post(url, {
           name: name,
@@ -38,7 +38,7 @@ const LeftContainer = (props) => {
         setBranch("");
         setAnumber("");
         // setMessage("Registered Successfully");
-        setButton(<button type="submit" className={styles.button}><div>Registered Successfully</div></button>)
+        setButton(<button type="submit" className={styles.button} disabled><div>Registered Successfully</div></button>)
       } catch (error) {
         setMessage("User already exists");
         setButton(<button type="submit" className={styles.button}><div>Submit</div><div className={styles.arrow}>&rarr;</div></button>)
