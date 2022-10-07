@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import axios from "axios";
 import styles from "../Style/leftContainer.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 
 const url = "http://127.0.0.1:8000/api/v1/users/signup";
 // const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
@@ -14,9 +16,13 @@ const LeftContainer = (props) => {
   const [aNumber, setAnumber] = useState("");
   const [message, setMessage] = useState("");
 
+  const [button, setButton] = useState(<button type="submit" className={styles.button}><div>Submit</div><div className={styles.arrow}>&rarr;</div></button>)
+
   const submitForm = async (e) => {
     e.preventDefault();
+
     if (name && email && number && branch && aNumber) {
+      setButton(<button type="submit" className={styles.button}><FontAwesomeIcon icon={faSpinner} className="fa-spin" disabled/></button>)
       try {
         const resp = await axios.post(url, {
           name: name,
@@ -31,9 +37,11 @@ const LeftContainer = (props) => {
         setNumber("");
         setBranch("");
         setAnumber("");
-        setMessage("Registered Successfully");
+        // setMessage("Registered Successfully");
+        setButton(<button type="submit" className={styles.button}><div>Registered Successfully</div></button>)
       } catch (error) {
         setMessage("User already exists");
+        setButton(<button type="submit" className={styles.button}><div>Submit</div><div className={styles.arrow}>&rarr;</div></button>)
         console.log(error);
       }
 
@@ -98,10 +106,7 @@ const LeftContainer = (props) => {
           placeholder="Application Number"
           className={styles.inputBox}
         />
-        <button type="submit" className={styles.button}>
-          <div>Submit</div>
-          <div className={styles.arrow}>&rarr;</div>
-        </button>
+        {button}
         <small>{message}</small>
       </form>
     </div>

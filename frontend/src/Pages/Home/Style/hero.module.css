@@ -11,6 +11,10 @@ body {
   padding: 0;
 }
 
+img {
+  pointer-events: none
+}
+
 .heroContainer {
   position: relative;
 }
