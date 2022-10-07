@@ -4,6 +4,7 @@ import logo from "../Assets/black-logo.png"
 
 
 
+
 function Hero() {
   return (
     
@@ -12,8 +13,8 @@ function Hero() {
       <img src={logo} alt="ccs-logo" className={styles.logo}/>
     
       <div className={styles.buttons}> 
-        <input type="button" value="Login" className={`${styles.button} ${styles.loginButton}`}/>
-        <input type="button" value="Register" className={`${styles.button} ${styles.registerButton}`}/>
+        <input type="button" value="Login" className={`${styles.button} ${styles.loginButton}`}/><a href="/signup">
+        <input type="button" value="Register" className={`${styles.button} ${styles.registerButton}`}/></a>
       </div>
 
     </div>
