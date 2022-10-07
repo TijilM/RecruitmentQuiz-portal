@@ -71,7 +71,6 @@ exports.checkAnswers = async (req, res, next) => {
         newScore += question.points;
       else newScore -= 1;
     }
-    console.log(answers);
 
     // Update user score
     const updatedUser = await User.findByIdAndUpdate(
