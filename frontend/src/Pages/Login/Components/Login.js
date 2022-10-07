@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../Assets/logo.png";
 import axios from "axios";
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 const url = "http://127.0.0.1:8000/api/v1/users/login";
 // const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
