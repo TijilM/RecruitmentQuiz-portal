@@ -1,57 +1,60 @@
-.whyccsContainer{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #222132;
-    background-image: url("../Assets/abstractWallpaper.png");
+.whyccsContainer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #222132;
+  background-image: url("../Assets/abstractWallpaper.png");
 }
 
 .whyccsSection {
-    width: 80%;
-    margin: 0px auto;
+  width: 80%;
+  margin: 0px auto;
 }
 
 .mainHeading {
-    color: white;
-    font-size: 3.5vw;
-    font-family: "Montserrat";
-    font-weight: 600;
+  color: white;
+  font-size: 3.5vw;
+  font-family: "Montserrat";
+  font-weight: 600;
 }
-
 
 .whyccsItem {
-    display: flex;
-    align-items: center;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
 }
-.spacer{
-    display: flex;
-    align-items: center;
-    height: 8vw;
+.spacer {
+  display: flex;
+  align-items: center;
+  height: 8vw;
 }
 
 .heading {
-    color: white;
-    text-transform: uppercase;
-    font-size: 2.5vw;
-    font-family: Montserrat;
-    margin-bottom: 20px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.381);
+  text-transform: uppercase;
+  font-size: 2.7vw;
+  font-family: Montserrat;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .content {
-    color: white;
-    font-family: 'Segoe UI';
-    font-size: 2vw;
+  color: white;
+  font-family: "Segoe UI";
+  font-size: 2.2vw;
 }
 
 .whyccsImage {
-    height: 17vw;
-    margin: 25px;
+  height: 18vw;
+  margin: 25px;
 }
 
 .whyccsItem:nth-child(odd) {
-    text-align: left;
+  text-align: left;
 }
 
 .whyccsItem:nth-child(even) {
-    text-align: right;
+  text-align: right;
 }
