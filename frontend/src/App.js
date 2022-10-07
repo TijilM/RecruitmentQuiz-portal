@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
 import Test from "./Pages/Test"
 import Signup from "./Pages/SignUp";
-import Login from "./Pages/Login"
+// import Login from "./Pages/Login"
 import LoginRedirect from "./Pages/LoginRedirect"
 import Home from "./Pages/Home";
 import Instructions from "./Pages/Instructions";
