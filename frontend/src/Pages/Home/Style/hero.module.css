@@ -1,60 +1,54 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-
-
-.heroContainer{
-    position: relative;
+.heroContainer {
+  position: relative;
 }
 
-.heroBg{
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+.heroBg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
-
 
 /*ccs logo*/
-.logo{
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    width: 40%;
+.logo {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  width: 40%;
 }
 
 .buttons {
-    position: absolute;
-    left: 10%;
-    bottom: 30%;
+  position: absolute;
+  left: 10%;
+  bottom: 30%;
 }
-
 
 .button {
-    width: 20vw;
-    height: 6vw;
-    font-size: 1.5vw;
-    color: white;
-    background-color: #1E1E6C;
-    border-radius: 20vw;
-    display: block;
-    margin-top: 5vh;
-    cursor: pointer;
+  width: 20vw;
+  height: 6vw;
+  font-size: 1.5vw;
+  color: white;
+  background-color: #1e1e6c;
+  border-radius: 20vw;
+  display: block;
+  margin-top: 5vh;
+  cursor: pointer;
 }
 
-
-.spacer{
-    display: flex;
-    align-items: center;
-    height: 8vw;
+.spacer {
+  display: flex;
+  align-items: center;
+  height: 8vw;
 }
-
