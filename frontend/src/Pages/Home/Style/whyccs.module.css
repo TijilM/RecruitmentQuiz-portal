@@ -58,3 +58,7 @@
 .whyccsItem:nth-child(even) {
   text-align: right;
 }
+
+.whyccsItem:last-child {
+  margin-bottom: 10vw;
+}
