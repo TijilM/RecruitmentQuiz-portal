@@ -1,0 +1,61 @@
+.ovalcont{
+  margin-top: 30vh;
+  margin-left: 38vw;
+  width:20vw;
+  align-items: center;
+
+}
+
+.ovaltext{
+  border-radius: 20vw;
+  margin-top:5vh;
+  background-color: rgb(174, 226, 219);
+  font-size: 1.5vw;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  padding: 3vw;
+  display: flex;
+  font-family: "monospace";
+}
+  .oval {
+    width: 20vw;
+    display: flex;
+    height: 80px;
+    border: rgba(115, 202, 218, 0.692) solid .5vmin;
+    border-radius: 50%;
+    position: relative;
+    -webkit-animation:spin 4s ease-in-out infinite;
+      -moz-animation:spin 4s ease-in-out infinite;
+      animation:spin 4s ease-in-out infinite;
+  }
+  
+  .oval:before {
+    content: "";
+    width: 20vw;
+    height: 80px;
+    border: rgb(147, 192, 223) solid .5vmin;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(45deg);
+    -webkit-animation:spin 4s ease-in-out infinite;
+      -moz-animation:spin 4s ease-in-out infinite;
+      animation:spin 4s ease-in-out infinite;
+  }
+  
+  .oval:after {
+    content: "";
+    width: 20vw;
+    height: 80px;
+    border: rgb(48, 192, 125) solid .5vmin;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(105deg);
+    -webkit-animation:spin 4s ease-in-out infinite;
+      -moz-animation:spin 4s ease-in-out infinite;
+      animation:spin 4s ease-in-out infinite;
+  }
+  
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

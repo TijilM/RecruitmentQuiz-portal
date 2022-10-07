@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -44,6 +48,7 @@ body {
     border-radius: 20vw;
     display: block;
     margin-top: 5vh;
+    cursor: pointer;
 }
 
 

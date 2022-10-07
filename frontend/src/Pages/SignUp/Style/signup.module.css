@@ -1,21 +1,18 @@
 .mainContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  background-color: rgba(85, 198, 191, 0.871);
-  max-width: 200rem;
-  height: 70vh;
-  margin: 0 auto;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  margin-top: 50%;
-  transform: translateY(-50%);
-  border-radius: 30px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #1F1F70 50%, #CCE4FF 50%);
+
 }
 
-@media (max-width: 767px) {
-  .mainContainer {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-  }
+.container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  width: 70%;
+  height: 80%;
+  border-radius: 40px;
+  min-width: 300px;
+
 }

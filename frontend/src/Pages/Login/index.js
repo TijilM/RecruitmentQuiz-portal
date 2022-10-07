@@ -1,5 +1,5 @@
 import LoginForm from './Components/Login'
-import styles from "./Style/login.module.css"
+// import styles from "./Style/login.module.css"
 
 
 function Login() {
@@ -9,7 +9,6 @@ function Login() {
       <LoginForm />
     </div>
   )
-  
 }
 
 export default Login;
