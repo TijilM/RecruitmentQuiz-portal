@@ -7,8 +7,11 @@
 }
 .ovaltext{
   border-radius: 20vw;
+  margin-left: 25vw;
+  margin-top:5vh;
   background-color: rgb(174, 226, 219);
   font-size: 1.3vw;
+  align-items: center;
   justify-content: center;
   width:29vw;
   padding: 3vw;
