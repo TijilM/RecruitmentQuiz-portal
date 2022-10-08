@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.5em;
+  gap: 5vh;
   width: 50%;
   height: 100%;
   display: flex;
@@ -24,10 +24,11 @@
 }
 
 .heading {
-  margin: 10px;
+  margin: 0px;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .inputBox {
