@@ -15,14 +15,15 @@
 }
 
 .navbarContainer {
+  position: absolute;
   text-decoration: none;
   font-size: 1.5vw;
   font-family: "Montserrat";
-  height: 10vw;
+  height: 7vw;
 
   /* background-color: rgb(124, 192, 192); */
-  background-color: rgba(47, 46, 65, 0.835);
-  /* opacity: 60%; */
+  background-color: rgba(47, 46, 65);
+  opacity: 80%;
   display: flex;
   justify-content: space-between;
 

@@ -37,7 +37,7 @@ const LeftContainer = (props) => {
         setNumber("");
         setBranch("");
         setAnumber("");
-        // setMessage("Registered Successfully");
+        setMessage("");
         setButton(<button type="submit" className={styles.button} disabled><div>Registered Successfully</div></button>)
       } catch (error) {
         setMessage("User already exists");
