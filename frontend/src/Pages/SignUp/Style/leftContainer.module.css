@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4em;
+  align-items: center;
+  gap: 3.5em;
   width: 50%;
   height: 100%;
   display: flex;
