@@ -1,4 +1,8 @@
 .leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4em;
   width: 50%;
   height: 100%;
   display: flex;
@@ -12,6 +16,10 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+}
+
+.logo {
+  height: 18%;
 }
 
 .heading {
@@ -44,7 +52,7 @@
   transition: 0.2s;
 }
 .button:hover {
-  background-color: #E6F2FF;
+  background-color: #e6f2ff;
   color: black;
 }
 
@@ -56,6 +64,6 @@
 @media (max-width: 768px) {
   .leftContainer {
     border-radius: 40px;
-    width: 100%
+    width: 100%;
   }
 }
