@@ -12,7 +12,8 @@ body {
 }
 
 img {
-  pointer-events: none
+  pointer-events: none;
+  user-select: none;
 }
 
 .heroContainer {
