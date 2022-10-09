@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.5em;
+  gap: 5vh;
   width: 50%;
   height: 100%;
   display: flex;
@@ -24,16 +24,19 @@
 }
 
 .heading {
-  margin: 10px;
+  margin: 0px;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .inputBox {
   display: block;
-  margin: 5px;
+  /* margin: 5px; */
+  margin-bottom: 10px;
   height: 35px;
+  padding-left: 5px;
 }
 
 .button {
@@ -47,7 +50,7 @@
   padding: 6px 6px;
   font-size: 16px;
   font-family: "Montserrat";
-  margin: 5px;
+  /* margin: 5px; */
   margin-top: 20px;
   height: 35px;
   transition: 0.2s;
