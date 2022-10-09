@@ -106,7 +106,7 @@ exports.signup = async (req, res, next) => {
 
     const otp = `${Math.floor(Math.random() * 8999) + 1000}`;
 
-    const err = sendOTP(req.body.email, otp);
+    // const err = sendOTP(req.body.email, otp);
 
     const newUser = await User.create({
       name: req.body.name,
