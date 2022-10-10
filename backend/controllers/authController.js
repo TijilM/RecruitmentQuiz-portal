@@ -96,10 +96,10 @@ exports.signup = async (req, res, next) => {
     ]);
 
     const assignedQuestions = [
-      ...shuffleArray(easyQuestions.map((el) => el.questionNumber)).slice(0, 4),
+      ...shuffleArray(easyQuestions.map((el) => el.questionNumber)).slice(0, 5),
       ...shuffleArray(mediumQuestions.map((el) => el.questionNumber)).slice(
         0,
-        3
+        4
       ),
       ...shuffleArray(hardQuestions.map((el) => el.questionNumber)).slice(0, 3),
     ];
