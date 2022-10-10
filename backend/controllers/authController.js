@@ -79,10 +79,14 @@ const createSendToken = (user, statusCode, res) => {
 // ROUTE TO SIGN UP
 exports.signup = async (req, res, next) => {
   try {
+    let shift = 1;
+    // IF GLOBAL VARIABLR I IS EVEN USER IS ASSIGNED SHIFT TWO
+    if (i % 2 === 0) shift = 2;
+
     // GET ALL QUESTIONS
-    const easy = Question.find({ difficulty: 'easy' });
-    const medium = Question.find({ difficulty: 'medium' });
-    const hard = Question.find({ difficulty: 'hard' });
+    const easy = Question.find({ difficulty: 'easy', slot: shift });
+    const medium = Question.find({ difficulty: 'medium', slot: shift });
+    const hard = Question.find({ difficulty: 'hard', slot: shift });
 
     // RESOLVE PROMISES SIMULTANEOUSLY TO REDUCE WAITING TIME
     const [easyQuestions, mediumQuestions, hardQuestions] = await Promise.all([
@@ -100,10 +104,7 @@ exports.signup = async (req, res, next) => {
       ...shuffleArray(hardQuestions.map((el) => el.questionNumber)).slice(0, 3),
     ];
 
-    let shift = 1;
-    // IF GLOBAL VARIABLR I IS EVEN USER IS ASSIGNED SHIFT TWO
-    if (i % 2 === 0) shift = 2;
-
+    // GENERATE OTP TO SAVE AS PASSWORD
     const otp = `${Math.floor(Math.random() * 8999) + 1000}`;
 
     // const err = sendOTP(req.body.email, otp);
