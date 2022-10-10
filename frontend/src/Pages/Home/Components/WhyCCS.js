@@ -12,10 +12,10 @@ function WhyCCS() {
   return (
     <div className={styles.whyccsContainer} id="whyccsid">
       <div className={styles.whyccsSection}>
-        <div className={styles.spacer}></div>
+        {/* <div className={styles.spacer}></div> */}
         {/* <h1 className={styles.mainHeading}>Why CCS?</h1> */}
-        <div className={styles.spacer}></div>
-        <div className="why-ccs-list">
+        {/* <div className={styles.spacer}></div> */}
+        <div className={styles.whyccsList}>
           <Fade left>
             <div className={styles.whyccsItem}>
               <img src={img1} alt="whyccs1" className={styles.whyccsImage} />
@@ -27,7 +27,7 @@ function WhyCCS() {
                 </div>
               </div>
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
           </Fade>
           <Fade right>
             <div className={styles.whyccsItem}>
@@ -40,7 +40,7 @@ function WhyCCS() {
               </div>
               <img src={img2} alt="whyccs2" className={styles.whyccsImage} />
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
           </Fade>
           <Fade left>
             <div className={styles.whyccsItem}>
@@ -53,7 +53,7 @@ function WhyCCS() {
                 </div>
               </div>
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
           </Fade>
           <Fade right>
             <div className={styles.whyccsItem}>
@@ -67,7 +67,7 @@ function WhyCCS() {
               </div>
               <img src={img4} alt="whyccs4" className={styles.whyccsImage} />
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
           </Fade>
           <Fade left>
             <div className={styles.whyccsItem}>
@@ -81,7 +81,7 @@ function WhyCCS() {
                 </div>
               </div>
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
           </Fade>
           <Fade right>
             <div className={styles.whyccsItem}>

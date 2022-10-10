@@ -12,7 +12,6 @@ function Navbar() {
             wrapper="div"
             cursor={true}
             repeat={Infinity}
-            style={{ fontSize: "2vw" }}
           />
         </div>
 
