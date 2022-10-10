@@ -16,6 +16,7 @@ import img1 from "../Assets/img1.jpg";
 import img2 from "../Assets/img2.jpg";
 import img3 from "../Assets/img3.jpg";
 import img4 from "../Assets/img4.jpg";
+import img5 from "../Assets/img5.jpeg";
 
 function Carousel() {
   return (
@@ -51,6 +52,9 @@ function Carousel() {
         </SwiperSlide>
         <SwiperSlide className={styles.swiperSlide}>
           <img src={img4} alt="ipsum3" className={styles.carouselImage} />
+        </SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>
+          <img src={img5} alt="ipsum3" className={styles.carouselImage} />
         </SwiperSlide>
         {/* <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide>
         <SwiperSlide className={styles.swiperSlide}><img src="https://picsum.photos/300/400" alt="ipsum3" /></SwiperSlide> */}
