@@ -125,3 +125,14 @@
   justify-content: left;
   align-items: center;
 }
+
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    justify-content: center;
+  }
+
+  .navMenu {
+    display: none;
+  }
+}

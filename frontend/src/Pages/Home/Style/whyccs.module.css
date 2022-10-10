@@ -18,10 +18,15 @@
   font-weight: 600;
 }
 
+.whyccsList {
+  padding-top: 5vw;
+}
+
 .whyccsItem {
   display: flex;
-  gap: 1vw;
+  gap: 2vw;
   align-items: center;
+  margin-bottom: 2vw;
 }
 .spacer {
   display: flex;
@@ -61,4 +66,26 @@
 
 .whyccsItem:last-child {
   margin-bottom: 10vw;
+}
+
+@media (max-width: 768px) {
+  /* .whyccsItem {
+    margin-bottom: 2vw;
+  } */
+
+  .whyccsItem:nth-child(odd) {
+    flex-direction: column;
+  }
+  
+  .whyccsItem:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .content {
+    text-align: justify;
+  }
 }

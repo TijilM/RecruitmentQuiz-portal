@@ -58,3 +58,9 @@ img {
   align-items: center;
   height: 8vw;
 }
+
+@media (max-width: 768px) {
+  .button {
+    font-size: 2vw;
+  }
+}

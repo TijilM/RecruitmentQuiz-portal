@@ -23,3 +23,9 @@
   align-items: center;
   background: rgb(215 233 255);
 }
+
+@media (max-width: 768px) {
+  .swiper {
+    width: 90%;
+  }
+}
