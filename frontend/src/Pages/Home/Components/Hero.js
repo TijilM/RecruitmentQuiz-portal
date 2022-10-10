@@ -1,6 +1,6 @@
 import styles from "../Style/hero.module.css"
-import bgImg from "../Assets/Landing.png"
-import logo from "../Assets/black-logo.png"
+import heroImg from "../Assets/heroImg.svg"
+import logo from "../Assets/white-logo.png"
 
 
 
@@ -9,7 +9,7 @@ function Hero() {
   return (
     
     <div className={styles.heroContainer}>
-      <img src={bgImg} alt="hero-bg-img" className={styles.heroBg}/>
+      <img src={heroImg} alt="hero-bg-img" className={styles.heroImg}/>
       <img src={logo} alt="ccs-logo" className={styles.logo}/>
     
       <div className={styles.buttons}> 

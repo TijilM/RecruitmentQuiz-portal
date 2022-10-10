@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from "swiper";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -10,13 +12,17 @@ import "swiper/css/pagination";
 import styles from "../Style/carousel.module.css";
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
+
+
 
 import img1 from "../Assets/img1.jpg";
 import img2 from "../Assets/img2.jpg";
 import img3 from "../Assets/img3.jpg";
 import img4 from "../Assets/img4.jpg";
 import img5 from "../Assets/img5.jpeg";
+
+
+SwiperCore.use([Autoplay])
 
 function Carousel() {
   return (
@@ -26,14 +32,24 @@ function Carousel() {
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView={1}
         loop={true}
+        autoplay={{
+          delay: 5000
+        }}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
           depth: 100,
           modifier: 1,
           slideShadows: true,
+        }}
+        breakpoints={{
+          640: {
+            // width: 640,
+            slidesPerView: 2,
+          },
+         
         }}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
