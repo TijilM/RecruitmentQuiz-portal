@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from "swiper";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper";
 
 
 // Import Swiper styles
@@ -22,8 +22,6 @@ import img4 from "../Assets/img4.jpg";
 import img5 from "../Assets/img5.jpeg";
 
 
-SwiperCore.use([Autoplay])
-
 function Carousel() {
   return (
     <div class={styles.center}>
@@ -35,7 +33,8 @@ function Carousel() {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 5000
+          delay: 5000,
+          disableOnInteraction: false
         }}
         coverflowEffect={{
           rotate: 50,
@@ -52,7 +51,7 @@ function Carousel() {
          
         }}
         pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        modules={[Autoplay, EffectCoverflow, Pagination]}
         className={styles.swiper}
       >
         {/* <SwiperSlide><img src={img1} alt="ipsum1" /></SwiperSlide>
