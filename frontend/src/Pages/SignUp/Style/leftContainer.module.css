@@ -22,7 +22,7 @@
   overflow: scroll;
   text-align: center;
 
-  
+  color: #444;
 }
 
 ::-webkit-scrollbar {

@@ -54,7 +54,7 @@ const LeftContainer = (props) => {
   const submitForm = async (e) => {
     e.preventDefault();
 
-    if (name && email && number && branch && aNumber && techStack && links) { 
+    if (name && email && number && branch && aNumber) { 
       setButton(
         <button type="submit" className={styles.button} disabled>
           <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
@@ -134,7 +134,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
+          placeholder="Name *"
           className={styles.inputBox}
         />
         <input
@@ -144,7 +144,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="Email *"
           className={styles.inputBox}
         />
         <input
@@ -154,7 +154,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
-          placeholder="Phone Number"
+          placeholder="Phone Number *"
           className={styles.inputBox}
         />
         <input
@@ -164,7 +164,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={branch}
           onChange={(e) => setBranch(e.target.value)}
-          placeholder="Branch"
+          placeholder="Branch *"
           className={styles.inputBox}
         />
         <input
@@ -174,7 +174,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={aNumber}
           onChange={(e) => setAnumber(e.target.value)}
-          placeholder="Application Number"
+          placeholder="Application Number *"
           className={styles.inputBox}
         />
         <input
@@ -194,7 +194,7 @@ const LeftContainer = (props) => {
           autoComplete="off"
           value={links}
           onChange={(e) => setLinks(e.target.value)}
-          placeholder="Links (Github, Linkedin, etc.)"
+          placeholder="Links (Github, Codechef, etc.)"
           className={styles.inputBox}
         />
         <div className={styles.checkboxes}>
