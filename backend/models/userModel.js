@@ -60,6 +60,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: '',
   },
+  nonTechFields: {
+    type: String,
+    default: '',
+  },
+  nonTechLinks: {
+    type: String,
+    default: '',
+  },
 });
 
 // CREATING AN OBJECT USER BASED ON THE USER SCHEMA
