@@ -121,6 +121,7 @@ exports.signup = async (req, res, next) => {
       links: req.body.links,
       nonTechFields: req.body.nonTechFields,
       nonTechLinks: req.body.nonTechLinks,
+      techStack: req.body.techStack,
     });
 
     createSendToken(newUser, 201, res);

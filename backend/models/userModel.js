@@ -68,6 +68,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: '',
   },
+  techStack: {
+    type: String,
+    default: '',
+  },
 });
 
 // CREATING AN OBJECT USER BASED ON THE USER SCHEMA
