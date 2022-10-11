@@ -60,7 +60,7 @@
 .inputBox {
   display: block;
   /* margin: 5px; */
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   line-height: 30px;
   padding-left: 5px;
 }
@@ -110,5 +110,11 @@
   .leftContainer {
     border-radius: 40px;
     width: 100%;
+    padding: 20px;
+  }
+
+  .leftContainerForm {
+    width: 100%;
+    overflow: auto;
   }
 }
