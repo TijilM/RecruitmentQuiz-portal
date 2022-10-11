@@ -15,8 +15,17 @@ const LeftContainer = (props) => {
   const [number, setNumber] = useState("");
   const [branch, setBranch] = useState("");
   const [aNumber, setAnumber] = useState("");
+  const [techStack, setTechStack] = useState("");
   const [links, setLinks] = useState("");
   const [message, setMessage] = useState("");
+  const [nonTech, setNonTech] = useState([]);
+  const [nonTechLinks, setNonTechLinks] = useState("")
+  // const [nonTech, setNonTech] = useState({
+  //   "Marketing": false,
+  //   "Content Writing": false,
+  //   "Designing": false,
+  //   "Video Editing": false
+  // });
 
   const [button, setButton] = useState(
     <button type="submit" className={styles.button}>
@@ -25,10 +34,27 @@ const LeftContainer = (props) => {
     </button>
   );
 
+    const handleCheck = (e) => {
+      // console.log(e.target.checked);
+
+      const {checked, value} = e.target;
+
+      if(checked) {
+        setNonTech(prev => (
+          [...prev, value]
+        ))
+      }else {
+        setNonTech(prev => prev.filter((e) => e!==value))
+      }
+      console.log(nonTech)
+    }
+
+
+
   const submitForm = async (e) => {
     e.preventDefault();
 
-    if (name && email && number && branch && aNumber) {
+    if (name && email && number && branch && aNumber && techStack && links) { 
       setButton(
         <button type="submit" className={styles.button} disabled>
           <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
@@ -41,7 +67,10 @@ const LeftContainer = (props) => {
           phoneNumber: number,
           branch: branch,
           applicationNumber: aNumber,
+          techStack: techStack,
           links: links,
+          nonTechFields: nonTech.toString(),
+          nonTechLinks: nonTechLinks,
         });
         // console.log(resp.data);
         setName("");
@@ -49,8 +78,16 @@ const LeftContainer = (props) => {
         setNumber("");
         setBranch("");
         setAnumber("");
+        setTechStack("");
         setLinks("");
         setMessage("");
+        setNonTech([]);
+        const checklist = document.getElementsByTagName("input");
+        for (const element of checklist) {
+          element.checked = false;
+        }
+
+        setNonTechLinks("");
         setButton(
           <button type="submit" className={styles.button} disabled>
             <div>Registered!</div>
@@ -84,12 +121,12 @@ const LeftContainer = (props) => {
   return (
     <div className={styles.leftContainer}>
       <img src={logo} alt="ccs-logo" className={styles.logo} />
+      <h3 className={styles.heading}>Register Here</h3>
       <form
         action=""
         onSubmit={submitForm}
         className={styles.leftContainerForm}
       >
-        <h3 className={styles.heading}>Register Here</h3>
         <input
           type="text"
           name="name"
@@ -142,12 +179,75 @@ const LeftContainer = (props) => {
         />
         <input
           type="text"
+          name="techStack"
+          id="techStack"
+          autoComplete="off"
+          value={techStack}
+          onChange={(e) => setTechStack(e.target.value)}
+          placeholder="Tech Stack"
+          className={styles.inputBox}
+        />
+        <input
+          type="text"
           name="links"
           id="links"
           autoComplete="off"
           value={links}
           onChange={(e) => setLinks(e.target.value)}
           placeholder="Links (Github, Linkedin, etc.)"
+          className={styles.inputBox}
+        />
+        <div className={styles.checkboxes}>
+          <div className={styles.checkHeading}>Select the Non-Tech fields you wish to contribute to (if any)</div>
+          <div className={styles.check}>
+            <input
+              type="checkbox"
+              name="nonTechDomain"
+              id="marketing"
+              value="Marketing"
+              onChange={handleCheck}
+            />
+            <label htmlFor="marketing">Marketing</label>
+          </div>
+          <div className={styles.check}>
+            <input
+              type="checkbox"
+              name="nonTechDomain"
+              id="contentWriting"
+              value="Content Writing"
+              onChange={handleCheck}
+            />
+            <label htmlFor="contentWriting">Content Writing</label>
+          </div>
+          <div className={styles.check}>
+            <input
+              type="checkbox"
+              name="nonTechDomain"
+              id="designing"
+              value="Designing"
+              onChange={handleCheck}
+            />
+            <label htmlFor="designing">Designing</label>
+          </div>
+          <div className={styles.check}>
+            <input
+              type="checkbox"
+              name="nonTechDomain"
+              id="videoEditing"
+              value="Video Editing"
+              onChange={handleCheck}
+            />
+            <label htmlFor="videoEditing">Video Editing</label>
+          </div>
+        </div>
+        <input
+          type="text"
+          name="nonTechLinks"
+          id="nonTechLinks"
+          autoComplete="off"
+          value={nonTechLinks}
+          onChange={(e) => setNonTechLinks(e.target.value)}
+          placeholder="Link to any Non-Tech work"
           className={styles.inputBox}
         />
         {button}

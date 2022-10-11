@@ -11,14 +11,39 @@
   justify-content: center;
   background-color: white;
   border-radius: 40px 0 0 40px;
+  padding: 12px;
 }
 
 .leftContainerForm {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
+  height: 70%;
+  overflow: scroll;
   text-align: center;
+
+  
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 
 .logo {
   height: 18%;
@@ -28,7 +53,7 @@
   margin: 0px;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   text-align: center;
 }
 
@@ -36,9 +61,24 @@
   display: block;
   /* margin: 5px; */
   margin-bottom: 10px;
-  height: 35px;
+  line-height: 30px;
   padding-left: 5px;
 }
+
+.checkboxes {
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px 0;
+}
+
+.checkHeading {
+  margin-bottom: 10px;
+}
+
+.check {
+  margin: 5px 0;
+}
+
 
 .button {
   position: relative;
