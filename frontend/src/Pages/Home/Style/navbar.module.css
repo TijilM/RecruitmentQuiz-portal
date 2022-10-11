@@ -108,6 +108,9 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+
+  /* pointer-events: none; */
+  -webkit-tap-highlight-color: transparent;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat");

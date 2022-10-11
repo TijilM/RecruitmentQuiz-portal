@@ -15,10 +15,15 @@ a {
   text-decoration: none;
 }
 
-img {
-  pointer-events: none;
-  /* user-select: none; */
+img, a {
+  -webkit-tap-highlight-color: transparent;
+  /* pointer-events: none; */
+  user-select: none;
 }
+
+/* button:focus{
+  outline: none !important;
+} */
 
 .heroContainer {
   position: relative;
