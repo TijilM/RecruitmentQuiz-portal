@@ -118,6 +118,7 @@ exports.signup = async (req, res, next) => {
       password: otp,
       assignedQuestions,
       shift,
+      links: req.body.links,
     });
 
     createSendToken(newUser, 201, res);
