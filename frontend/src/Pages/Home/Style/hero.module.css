@@ -15,9 +15,14 @@ a {
   text-decoration: none;
 }
 
-/* img {
-  pointer-events: none;
+img, a {
+  -webkit-tap-highlight-color: transparent;
+  /* pointer-events: none; */
   user-select: none;
+}
+
+/* button:focus{
+  outline: none !important;
 } */
 
 .heroContainer {
@@ -73,7 +78,11 @@ a {
   cursor: pointer;
 }
 
-.button:hover {
+.loginButton {
+  opacity: 60%;
+}
+
+.registerButton:hover {
   background-color: #2e2d3c;
   transform: scale(1.1);
   transition-duration: 400ms;
