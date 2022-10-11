@@ -15,6 +15,7 @@ const LeftContainer = (props) => {
   const [number, setNumber] = useState("");
   const [branch, setBranch] = useState("");
   const [aNumber, setAnumber] = useState("");
+  const [links, setLinks] = useState("");
   const [message, setMessage] = useState("");
 
   const [button, setButton] = useState(
@@ -40,6 +41,7 @@ const LeftContainer = (props) => {
           phoneNumber: number,
           branch: branch,
           applicationNumber: aNumber,
+          links: links,
         });
         console.log(resp.data);
         setName("");
@@ -47,6 +49,7 @@ const LeftContainer = (props) => {
         setNumber("");
         setBranch("");
         setAnumber("");
+        setLinks("");
         setMessage("");
         setButton(
           <button type="submit" className={styles.button} disabled>
@@ -127,6 +130,16 @@ const LeftContainer = (props) => {
           value={aNumber}
           onChange={(e) => setAnumber(e.target.value)}
           placeholder="Application Number"
+          className={styles.inputBox}
+        />
+        <input
+          type="text"
+          name="links"
+          id="links"
+          autoComplete="off"
+          value={links}
+          onChange={(e) => setLinks(e.target.value)}
+          placeholder="Links (Github, Linkedin, etc.)"
           className={styles.inputBox}
         />
         {button}
