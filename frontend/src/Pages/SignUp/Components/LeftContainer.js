@@ -43,7 +43,7 @@ const LeftContainer = (props) => {
           applicationNumber: aNumber,
           links: links,
         });
-        console.log(resp.data);
+        // console.log(resp.data);
         setName("");
         setEmail("");
         setNumber("");
@@ -53,21 +53,29 @@ const LeftContainer = (props) => {
         setMessage("");
         setButton(
           <button type="submit" className={styles.button} disabled>
-            <div>Registered Successfully</div>
+            <div>Registered!</div>
           </button>
         );
       } catch (error) {
-        setMessage("User already exists");
+        // console.log(error.response.data.error);
+        const err_message = error.response.data.error;
+        // console.log(err_message.split(" ")[0])
+        if(err_message.split(" ")[0] == "E11000"){
+          setMessage("User already exists");
+        }else {
+          setMessage("An error occurred")
+        }
+        // error.response.data.error == ""
+        
         setButton(
           <button type="submit" className={styles.button}>
             <div>Submit</div>
             <div className={styles.arrow}>&rarr;</div>
           </button>
         );
-        console.log(error);
       }
 
-      console.log(name, email);
+      // console.log(name, email);
     } else {
       alert("Please fill in all the data");
     }
@@ -75,7 +83,7 @@ const LeftContainer = (props) => {
 
   return (
     <div className={styles.leftContainer}>
-      <img src={logo} alt="ccs-logo" class={styles.logo} />
+      <img src={logo} alt="ccs-logo" className={styles.logo} />
       <form
         action=""
         onSubmit={submitForm}
