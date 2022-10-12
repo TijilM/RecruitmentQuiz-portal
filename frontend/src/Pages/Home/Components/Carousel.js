@@ -24,7 +24,7 @@ import img5 from "../Assets/img5.jpeg";
 
 function Carousel() {
   return (
-    <div class={styles.center}>
+    <div className={styles.center}>
       <Swiper
         id="carouselid"
         effect={"coverflow"}

@@ -64,7 +64,7 @@ img, a {
 }
 
 .button {
-  width: max(200px, 15vw);
+  width: max(230px, 15vw);
   height: 60px;
   font-size: 20px;
   font-family: Montserrat;
@@ -78,11 +78,7 @@ img, a {
   cursor: pointer;
 }
 
-.loginButton {
-  opacity: 60%;
-}
-
-.registerButton:hover {
+.button:hover {
   background-color: #2e2d3c;
   transform: scale(1.1);
   transition-duration: 400ms;
