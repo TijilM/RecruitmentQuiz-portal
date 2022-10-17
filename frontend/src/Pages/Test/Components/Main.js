@@ -18,16 +18,17 @@ function Main() {
                 }
             }
 
-            const res = await axios.get("http://127.0.0.1:8000/api/v1/questions/getQuestions", config);
+            const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
             console.log(res);
             const questions = res.data.data.questions
             // setQuestions(res.data.data.questions)
             // console.log(questions)
-            setQuestionsElem(questions.map(ques => {
+            setQuestionsElem(questions.map((ques, index) => {
                 // console.log(ques[0].question)
                 return (
-                    <Question 
+                    <Question
                         question = {ques[0]}
+                        index = {index}
                         key = {ques[0]._id}
                     />
                 )
@@ -48,6 +49,11 @@ function Main() {
 
     }, []);
 
+    const submitQuiz = async () => {
+
+    }
+
+
     return (
         // <form>
         <div>
@@ -59,6 +65,8 @@ function Main() {
             </div>
 
             {/* <Question qid="2" /> */}
+
+            <input type="button" onClick={submitQuiz}/>
         </div>
         // </form>
     );
