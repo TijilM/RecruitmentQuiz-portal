@@ -95,14 +95,15 @@ exports.signup = async (req, res, next) => {
       hard,
     ]);
 
+    // console.log(easyQuestions)
+
     const assignedQuestions = [
       ...shuffleArray(easyQuestions.map((el) => el.questionNumber)).slice(0, 5),
-      ...shuffleArray(mediumQuestions.map((el) => el.questionNumber)).slice(
-        0,
-        4
-      ),
+      ...shuffleArray(mediumQuestions.map((el) => el.questionNumber)).slice(0, 4),
       ...shuffleArray(hardQuestions.map((el) => el.questionNumber)).slice(0, 3),
     ];
+
+    // console.log(assignedQuestions)
 
     // GENERATE OTP TO SAVE AS PASSWORD
     const otp = `${Math.floor(Math.random() * 8999) + 1000}`;
