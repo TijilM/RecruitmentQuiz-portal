@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import logo from "../Assets/logo.png";
 import axios from "axios";
 
@@ -16,11 +17,23 @@ const LoginForm = () => {
     e.preventDefault();
     if (name && email) {
       try {
-        const resp = await axios.post(url, {
+        axios.post(url, {
             email: email,
             password: password,
+        }).then((response) => {
+          const users = response.data
+          
+            localStorage.setItem('jwt', users.token)
+            localStorage.setItem('user', JSON.stringify(users))
+            console.log('users', users) // undefined
+      })
+        .catch((error) => {
+          console.log((error.message))
         });
-        console.log(resp.data);
+        //console.log(resp.data);
+
+
+
         setMessage("Logging in...")
         // window.location.href = "/instructions";
       } catch (error) {
