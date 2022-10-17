@@ -7,7 +7,7 @@ function Main(){
         // <form>
             <div>
             
-            <div className={styles.boxcontainer}>
+            <div>
     <div>
       <h1></h1>
       <p> <Question qid="1"/></p>
