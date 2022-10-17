@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import logo from "../Assets/black-logo.png";
 
-// const url = "http://127.0.0.1:8000/api/v1/users/signup";
-const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
+const url = "http://127.0.0.1:8000/api/v1/users/signup";
+// const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
 
 const LeftContainer = (props) => {
   const [name, setName] = useState("");
@@ -63,7 +63,7 @@ const LeftContainer = (props) => {
       try {
         const resp = await axios.post(url, {
           name: name,
-          email: email,
+          email: email.trim(),
           phoneNumber: number,
           branch: branch,
           applicationNumber: aNumber,
@@ -138,7 +138,7 @@ const LeftContainer = (props) => {
           className={styles.inputBox}
         />
         <input
-          type="text"
+          type="email"
           name="email"
           id="email"
           autoComplete="off"
@@ -148,7 +148,7 @@ const LeftContainer = (props) => {
           className={styles.inputBox}
         />
         <input
-          type="text"
+          type="number"
           name="phone"
           id="pnumber"
           autoComplete="off"

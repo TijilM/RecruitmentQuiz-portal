@@ -18,14 +18,14 @@ const LoginForm = () => {
     if (name && email) {
       try {
         axios.post(url, {
-            email: email,
+            email: email.trim(),
             password: password,
         }).then((response) => {
           const users = response.data
           
-            localStorage.setItem('jwt', users.token)
-            localStorage.setItem('user', JSON.stringify(users))
-            console.log('users', users) // undefined
+          localStorage.setItem('jwt', users.token)
+          localStorage.setItem('user', JSON.stringify(users))
+          console.log('users', users) // undefined
       })
         .catch((error) => {
           console.log((error.message))
