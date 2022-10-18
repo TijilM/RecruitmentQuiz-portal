@@ -1,17 +1,26 @@
-import styles from "../Style/test.module.css"
+import styles from "../Style/test.module.css"   
+import {useEffect,useState} from "react";
 
 
 function Question(props){
+
+
+
+
     // console.log(props.qid)
 
     const options = props.question.options.map((option) => {
         return (
             <label className={styles.testOption}>
-                <input type="radio" name={props.question._id} />
+                <input type="radio" name={props.question._id} id={option} />
                 {option}
             </label>
         )
     })
+
+
+   
+
 
     return (
         <div>
@@ -19,6 +28,7 @@ function Question(props){
             <div className={styles.testOptions}>
                 {options}
             </div>
+            
         </div>
     )
 }
