@@ -84,6 +84,13 @@ exports.checkAnswers = async (req, res, next) => {
         runValidators: true,
       }
     );
+
+    // Log the user out
+    res.cookie('jwt', 'loggedout', {
+      expires: new Date(Date.now() + 10 * 1000),
+      httpOnly: true,
+    });
+
     // Send the final score as response
     res.status(200).json({
       status: 'success',
