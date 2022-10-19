@@ -6,6 +6,7 @@ import Login from "./Pages/Login"
 import LoginRedirect from "./Pages/LoginRedirect"
 import Home from "./Pages/Home";
 import Instructions from "./Pages/Instructions";
+import Submitted from "./Pages/Submitted"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/instructions" element={<Instructions />}></Route>
           <Route path="/test" element={<Test />}></Route>
+          <Route path="/submitted" element={<Submitted />}></Route>
 
         </Routes>
       </Router>
