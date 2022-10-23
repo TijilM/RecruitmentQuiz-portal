@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Question from "./Question";
 import styles from "../Style/question.module.css";
 import axios from "axios";
 
 function Main() {
 
+    // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
-    const [answers, setAnswers] = useState([])
-    // let questionsElem
+    const [answers, setAnswers] = useState({})
 
 
     const optionClicked = (e) => {
-        setAnswers(prevAns => {
-            for(let ans of prevAns){
-                // console.log(e.target.name, ans[0], e.target.name == ans[0])
-                if(e.target.name == ans[0]){
-                    ans[1] = parseInt(e.target.value)
-                }
-            }
-
-            return prevAns
-        })
+        setAnswers(prevAns => (
+            {...prevAns, [e.target.name]: e.target.value}
+        ))
     }
 
-
+    
     useEffect(() => {
         async function fetchQuestions(){
             const token = localStorage.getItem("jwt")
@@ -35,24 +28,15 @@ function Main() {
             }
 
             const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
-            console.log(res);
-            const questions = res.data.data.questions
-            // setQuestions(res.data.data.questions)
-            // console.log(questions)
 
-
-            // for(const ques of questions){
-                
-            // }
+            const questions = res.data.data.questions;
 
 
             setQuestionsElem(questions.map((ques, index) => {
-                // console.log(ques[0].question)
+                
+                
 
-                setAnswers(prevAns => {
-                    return ([...prevAns, [ques[0]._id, "unanswered"]])
-                })
-
+    
                 return (
                     <Question
                         question = {ques[0]}
@@ -65,21 +49,35 @@ function Main() {
                 
             }))
 
-            console.log(questionsElem)
+            const initialAnswers = {};
 
-
+            questions.forEach((ques) => {
+                initialAnswers[ques[0]._id] = "unanswered";
+            })
+    
+            setAnswers(initialAnswers)
         }
 
         fetchQuestions()
 
 
         
-        
-
     }, []);
 
-    const submitQuiz = async () => {
+
+    useEffect(() => {
+        console.log("questions changed")
+    }, [questionsElem])
+
+    useEffect(() => {
+        console.log("called")
         console.log(answers)
+        localStorage.setItem("answers", JSON.stringify(answers));
+    }, [answers])
+
+
+    const submitQuiz = async () => {
+        // console.log(answers)
 
         // let answerArray = []
 
@@ -88,6 +86,8 @@ function Main() {
     //     const submission = {
 
     //     }
+
+
         const token = localStorage.getItem("jwt")
 
         const config = {
@@ -96,13 +96,31 @@ function Main() {
             }
         }
 
+        const storedAnswers = JSON.parse(localStorage.getItem("answers"))
+        // console.log(storedAnswers)
+        const keys = Object.keys(storedAnswers)
+
+        let finalAnswers = []
+        for(let i=0; i<keys.length; i++){
+            // console.log("loop run")
+            // console.log(keys[i], storedAnswers[keys[i]])
+            finalAnswers.push([keys[i], storedAnswers[keys[i]]])
+        }
+
+        // console.log(finalAnswers)
+
         const data = {
-            "questionIdsAndAnswers": answers,
+            "questionIdsAndAnswers": finalAnswers,
         }
 
         const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
     }
 
+
+    // console.log(questionsElem)
+    // localStorage.setItem("answers", answers)
+
+    // console.log(answers)
 
     return (
         // <form>
