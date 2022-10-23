@@ -2,8 +2,11 @@ import React, { useEffect, useState, useMemo } from "react";
 import Question from "./Question";
 import styles from "../Style/question.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
+    const navigate = useNavigate();
+
 
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
@@ -12,7 +15,7 @@ function Main() {
 
     const optionClicked = (e) => {
         setAnswers(prevAns => (
-            {...prevAns, [e.target.name]: e.target.value}
+            {...prevAns, [e.target.name]: parseInt(e.target.value)}
         ))
     }
 
@@ -34,9 +37,6 @@ function Main() {
 
             setQuestionsElem(questions.map((ques, index) => {
                 
-                
-
-    
                 return (
                     <Question
                         question = {ques[0]}
@@ -77,17 +77,7 @@ function Main() {
 
 
     const submitQuiz = async () => {
-        // console.log(answers)
-
-        // let answerArray = []
-
-        // for(int i=0; )
-
-    //     const submission = {
-
-    //     }
-
-
+   
         const token = localStorage.getItem("jwt")
 
         const config = {
@@ -97,33 +87,36 @@ function Main() {
         }
 
         const storedAnswers = JSON.parse(localStorage.getItem("answers"))
-        // console.log(storedAnswers)
         const keys = Object.keys(storedAnswers)
 
         let finalAnswers = []
         for(let i=0; i<keys.length; i++){
-            // console.log("loop run")
-            // console.log(keys[i], storedAnswers[keys[i]])
+
             finalAnswers.push([keys[i], storedAnswers[keys[i]]])
         }
 
-        // console.log(finalAnswers)
 
         const data = {
             "questionIdsAndAnswers": finalAnswers,
         }
 
+        console.log("data", data)
+
         const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+
+        if(res.data.status == "success"){
+            localStorage.removeItem("jwt")
+            localStorage.remoteItem("user")
+            localStorage.removeItem("answers")
+            navigate("/submitted")
+        }
+
     }
 
 
-    // console.log(questionsElem)
-    // localStorage.setItem("answers", answers)
 
-    // console.log(answers)
 
     return (
-        // <form>
         <div>
             <div className={styles.boxcontainer}>
                 <div>
@@ -132,11 +125,8 @@ function Main() {
                 </div>
             </div>
 
-            {/* <Question qid="2" /> */}
-
             <input type="button" onClick={submitQuiz} value="Submit" />
         </div>
-        // </form>
     );
 }
 
