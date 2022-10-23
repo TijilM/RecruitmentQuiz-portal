@@ -1,14 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Question from "./Question";
 import styles from "../Style/question.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
+    const navigate = useNavigate();
 
 
+    // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
-    // let questionsElem
+    const [answers, setAnswers] = useState({})
 
+
+    const optionClicked = (e) => {
+        setAnswers(prevAns => (
+            {...prevAns, [e.target.name]: parseInt(e.target.value)}
+        ))
+    }
+
+    
     useEffect(() => {
         async function fetchQuestions(){
             const token = localStorage.getItem("jwt")
@@ -20,100 +31,102 @@ function Main() {
             }
 
             const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
-            console.log(res);
-            const questions = res.data.data.questions
-            // setQuestions(res.data.data.questions)
-            // console.log(questions)
+
+            const questions = res.data.data.questions;
+
+
             setQuestionsElem(questions.map((ques, index) => {
-                // console.log(ques[0].question)
+                
                 return (
                     <Question
                         question = {ques[0]}
                         index = {index}
                         key = {ques[0]._id}
+                        optionClicked = {optionClicked}
                     />
                 )
                 
                 
             }))
 
-            console.log(questionsElem)
+            const initialAnswers = {};
 
-
+            questions.forEach((ques) => {
+                initialAnswers[ques[0]._id] = "unanswered";
+            })
+    
+            setAnswers(initialAnswers)
         }
 
         fetchQuestions()
 
 
         
-        
-
     }, []);
 
+
+    useEffect(() => {
+        console.log("questions changed")
+    }, [questionsElem])
+
+    useEffect(() => {
+        console.log("called")
+        console.log(answers)
+        localStorage.setItem("answers", JSON.stringify(answers));
+    }, [answers])
+
+
     const submitQuiz = async () => {
+   
+        const token = localStorage.getItem("jwt")
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
+        }
+
+        const storedAnswers = JSON.parse(localStorage.getItem("answers"))
+        const keys = Object.keys(storedAnswers)
+
+        let finalAnswers = []
+        for(let i=0; i<keys.length; i++){
+
+            finalAnswers.push([keys[i], storedAnswers[keys[i]]])
+        }
+
+
+        const data = {
+            "questionIdsAndAnswers": finalAnswers,
+        }
+
+        console.log("data", data)
+
+        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+
+        if(res.data.status == "success"){
+            localStorage.removeItem("jwt")
+            localStorage.remoteItem("user")
+            localStorage.removeItem("answers")
+            navigate("/submitted")
+        }
 
     }
 
 
 
-    //save answrs to local storage
-
-const [answers, setAnswers] = useState(() => {
-    return JSON.parse(localStorage.getItem("user_answers"))
-    
-  });
-  
-  useEffect(() => {
-    const getAns = JSON.parse(localStorage.getItem("user_answers"));
-    if (getAns) setAnswers(getAns);
-    console.log(getAns);
-  }, []);
-
-
-useEffect(() => {
-    
-    const selected = document.querySelectorAll("input[type=radio]:checked");
-    
-    const answers = [...selected].map((opt) => opt.name+opt.id);
-   window.localStorage.setItem("user_answers", JSON.stringify(answers));//update selected opt in ls
-   
-}, [answers]);
-
-  
-
-    // setInterval(() => {
-      
-    //     const markhistory = JSON.parse(localStorage.getItem("user_answers"));
-    //     if (markhistory!=null) {
-    //         console.log(markhistory);
-    //         setAnswers(markhistory.data);
-    //     for(var i=0;i<markhistory.length;i++){
-            
-    //         //console.log(markhistory[i].slice(0,markhistory.length-1));
-    //        document.getElementsByName(markhistory[i].slice(0,markhistory.length-1)).checked = true;
-    //     }
-    // };
-    // }, 1000)
-  
 
     return (
-        // <form>
         <div>
-
-            <div onChange={setAnswers}>
-                <div onChange={setAnswers}>
-                    <h1></h1>
+            <div className={styles.boxcontainer}>
+                <div>
+                    <h1>Recruitment Quiz</h1>
                     {questionsElem}
-                    
                 </div>
             </div>
 
-            {/* <Question qid="2" /> */}
-            
-
-            <input type="button" onClick={submitQuiz}/>
+            <input type="button" onClick={submitQuiz} value="Submit" />
         </div>
-        // </form>
     );
 }
 

@@ -5,19 +5,18 @@ import styles from "./Style/test.module.css"
 import { useEffect,useState } from 'react';
 import $ from 'jquery';
 
-
 function Test(){
-    
-const [cheatStrikes, setCheatStrikes] = useState(0);
 
-$(window).blur(function() {
-   // alert("Warning! You are being monitored \n cheat strikes="+{cheatStrikes}+"/3");
-   // console.log({cheatStrikes});
-  //  setCheatStrikes(cheatStrikes+1);
-  alert("Warning! You are being monitored ");
+// const [cheatStrikes, setCheatStrikes] = useState(0);
+
+// $(window).blur(function() {
+//    // alert("Warning! You are being monitored \n cheat strikes="+{cheatStrikes}+"/3");
+//    // console.log({cheatStrikes});
+//   //  setCheatStrikes(cheatStrikes+1);
+//   alert("Warning! You are being monitored ");
 
 
-});
+// });
 
     return (
         <div className={styles.testPage}>
