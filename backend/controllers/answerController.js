@@ -69,6 +69,7 @@ exports.checkAnswers = async (req, res, next) => {
       // Match correct answer to question with the marked answer
       if (question.answer === questionIdAndAnswer[1])
         newScore += question.points;
+      else if (questionIdAndAnswer[1] === 'unanswered') continue;
       else newScore -= 1;
     }
 
