@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap');
+
+.submitted {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "khand", sans-serif;
+    padding: 3vw;
+    width: 100vw;
+    background-color: #F2F2F2;
+}       
+
+.wrapperAlert {
+    
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  
+  border: thin solid #ddd;           
+}
+
+.svgsub{
+    margin-left: 13rem;
+    fill: #F2F2F2;
+}
+
+.topHalf {
+  width: 100%;
+  padding: 3vw;
+  color: white;
+  overflow: hidden;
+  min-height: 250px;
+  position: relative;
+  padding: 40px 0;
+  background: rgb(0,0,0);
+  background: -webkit-linear-gradient(45deg, #3f9fb8, #a0ebcf);
+}
+
+.topHalf tp {
+  margin-bottom: 30px;
+  padding: 3vw;
+}
+
+.th1 {
+  margin-left: 4.6vw;
+  font-size: 2.25rem;
+  
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.15rem;
+  text-shadow: 0 2px rgba(128, 128, 128, 0.6);
+}
+        
+
+
