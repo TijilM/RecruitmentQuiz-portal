@@ -86,6 +86,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #032133;
+    margin-top: 40vh;
 }
 
 .testTime {

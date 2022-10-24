@@ -1,4 +1,4 @@
-
+/* 
 :root {
   
   --shadow-dimension: 20px;
@@ -33,4 +33,4 @@
     bottom: 1px;
     transform: translateY(100%) skewx(-45deg);
     clip-path: polygon(100px 0%, 100% 0%, 100% 100%, calc(100px + 1px) 100%);
-}
+} */

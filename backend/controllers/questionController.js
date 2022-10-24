@@ -20,6 +20,24 @@ exports.createQuestion = async (req, res, next) => {
   }
 };
 
+// ROUTE TO GET ALL STORED QUESTIONS
+exports.getAllQuestions = async (req, res, next) => {
+  try {
+    // GETTING ALL QUESTIONS
+    const questions = await Question.find();
+
+    res.status(200).json({
+      status: 'success',
+      questions,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      err: err.message,
+    });
+  }
+};
+
 exports.getQuestions = async (req, res, next) => {
   try {
     // GETTING THE LOGGED IN USER
