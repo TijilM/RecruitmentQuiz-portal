@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Question from "./Question";
-import styles from "../Style/question.module.css";
+import styles from "../Style/test.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -120,7 +120,7 @@ function Main() {
         <div>
             <div className={styles.boxcontainer}>
                 <div>
-                    <h1>Recruitment Quiz</h1>
+                    <h1 className={styles.testHeading}>Recruitment Quiz</h1>
                     {questionsElem}
                 </div>
             </div>

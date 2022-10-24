@@ -1,7 +1,7 @@
 import styles from "./Style/submitted.module.css"
 import React from 'react'
 
-function submitted() {
+function Submitted() {
   return (
     <div className={styles.submitted}><div className={styles.wrapperAlert}>
 
@@ -29,4 +29,4 @@ function submitted() {
   )
 }
 
-export default submitted
+export default Submitted

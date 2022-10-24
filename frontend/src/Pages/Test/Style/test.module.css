@@ -10,19 +10,31 @@
 }
 
 .testLeftAside {
+    position: fixed;
     width: 17%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #06283D;
 }
 
 .testMain {
     width: 62%;
     min-height: 100vh;
+    background-color: #DFF6FF;
+    margin-left: 17%;
+}
+
+.testHeading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .testRightAside {
+    position: fixed;
+    right: 0;
     width: 21%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #06283D;
 }
 

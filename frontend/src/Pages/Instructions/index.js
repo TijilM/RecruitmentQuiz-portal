@@ -1,6 +1,9 @@
+import Looks from "./Components/Looks";
 function Instructions(){
     return (
-        <div>Hello world</div>
+        <div>
+            <Looks/>
+        </div>
     )
 }
 
