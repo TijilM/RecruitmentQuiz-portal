@@ -1,0 +1,32 @@
+.rightContainer {
+  width: 50%;
+  height: 100%;
+  background-color: #e6f2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 40px 40px 0;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  padding: 2em;
+  top: 1vw;
+  right: 1vw;
+  text-align: right;
+  width: 70%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vectorImage {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+}
+
+@media (max-width: 768px) {
+  .rightContainer {
+    display: none;
+  }
+}
