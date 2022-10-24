@@ -106,8 +106,6 @@ exports.signup = async (req, res, next) => {
       ...shuffleArray(hardQuestions.map((el) => el.questionNumber)).slice(0, 3),
     ];
 
-    // console.log(assignedQuestions)
-
     // GENERATE OTP TO SAVE AS PASSWORD
     const otp = `${Math.floor(Math.random() * 8999) + 1000}`;
 
