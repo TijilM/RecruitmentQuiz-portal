@@ -1,190 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-/* base styles */
-/* * {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-  box-sizing: border-box;
-} */
-.signup-logo {
-  border-radius: 4px;
-  padding: 5px;
-  width: 225px;
-  height: 330px;
-}
-.button {
-  background-color: #9ae0fb; /* Green */
-  border: none;
-  color:  #000000;
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 95%;
-  font-family: 'Montserrat';
-  margin: 3px 0;
-  transition: 0.5s;
-}
-.button:hover{
-  background-color: blue; 
-  border: none;
-  color:  white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 95%;
-  font-family: 'Montserrat';
-  margin: 3px 0;
-}
-h4{
- color: #a3f0fc;
- padding-top: 0.4rem;
- padding-bottom: 0.1rem;
-}
-.container{
-  height:100vh;
-  width: 100vw;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: #040950; */
-  /* background-image: linear-gradient(to right,rgb(0, 0, 0), rgb(4,65,131)); */
-}
-.inside{
-  padding: 0.5rem;
-  text-align: left;
-}
-input[type=password] {
-  width: 100%;
-  /* padding: 3px 3px; */
-  margin: 2px 0;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 9px 9px;
-  border: 1.5px solid #DFF6FF;
-  border-radius: 0px;
-  background-color: #000000;
-  color:#DFF6FF
-  
-}
-input[type=text] {
-  width: 100%;
-  /* padding: 3px 3px; */
-  margin: 2px 0;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 9px 9px;
-  border: 1.5px solid #DFF6FF;
-  border-radius: 0px;
-  background-color: #000000;
-  color:#DFF6FF
-  
-}
-.right{
-  background-color: #000000;
-  padding: 20px;
-}
-.left{
-  background-color:  #000000;
-  padding: 0px;
-  max-height: 100%;
-}
-.lefthidden{
-  background-color:  #000000;
-  padding: 0px;
-  max-height: 100%;
-  margin: auto;
-}
-.form{
-   /* padding: 10px;  */
-    display: flex;
-    align-items: center;
-    /* max-width: 500px; */
-    height: 65vh;
-    width: 40vw;
-    /* margin: 0 auto; */
-    color: #DFF6FF;
-    background-color: #000000;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-size: 16px;
-    vertical-align: middle;
-    border-radius: 20px;
-}
-.regform{
-  /* padding: 10px; */
+.mainContainer {
+  height: 100vh;
   display: flex;
   align-items: center;
-  /* max-width: 450px; */
-  height: 85vh;
-  /* width: 40vw; */
-  margin: 0 auto;
-  color: #DFF6FF;
-  background-color: #000000;
-  text-align: center;
-  font-family: 'Montserrat';
-  font-size: 16px;
-  vertical-align:middle;
-  border-radius: 15px;
+  justify-content: center;
+  background: linear-gradient(to left, #1F1F70 50%, #CCE4FF 50%);
+
 }
 
+.container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  width: 70%;
+  height: 80%;
+  border-radius: 40px;
+  min-width: 300px;
 
-@media (max-width: 767px) {
-  .lefthidden {
-    display: none;
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    height: 100%;
+    padding: 30px 0;
   }
-}
-html {
-  height: 100%;
-}
 
-body {
-  margin: 0;
 }
-
-.bg {
-  animation: slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, blue 50%, #000 50%);
-  bottom: 0;
-  left: -50%;
-  opacity: 0.5;
-  position: fixed;
-  right: -50%;
-  top: 0;
-  z-index: -1;
-}
-
-.bg2 {
-  animation-direction: alternate-reverse;
-  animation-duration: 4s;
-}
-
-.bg3 {
-  animation-duration: 5s;
-}
-
-.content {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 0.25em;
-  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  left: 50%;
-  padding: 10vmin;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(25%);
-  }
-}
-
