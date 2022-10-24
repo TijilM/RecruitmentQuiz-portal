@@ -37,7 +37,7 @@ function RightAside(){
     
         if(res.data.status == "success"){
             localStorage.removeItem("jwt")
-            localStorage.remoteItem("user")
+            localStorage.removeItem("user")
             localStorage.removeItem("answers")
             navigate("/submitted")
         }

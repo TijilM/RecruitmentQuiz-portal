@@ -4,8 +4,19 @@ import RightAside from "./Components/RightAside"
 import styles from "./Style/test.module.css"
 import { useEffect,useState } from 'react';
 import $ from 'jquery';
+// import { useNavigate } from "react-router-dom";
 
 function Test(){
+
+    // const navigate = useNavigate()
+
+    // const user = localStorage.getItem("user")
+
+    // console.log(user)
+
+    // if(!user){
+    //     navigate("/login")
+    // }
 
 // const [cheatStrikes, setCheatStrikes] = useState(0);
 
