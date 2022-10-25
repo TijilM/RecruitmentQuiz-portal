@@ -32,3 +32,21 @@
   .text {
     font-size: 14px
   }
+
+  .startTest {
+    display: block;
+    margin: 0px auto;
+    margin-top: 40px;
+    width: 150px;
+    height: 70px;
+    background-color:#091029;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .startTest:hover {
+    background-color: green;
+    color: white;
+  }

@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-
+import { useState } from "react";
 import Test from "./Pages/Test"
 import Signup from "./Pages/SignUp";
 import Login from "./Pages/Login"
@@ -10,8 +10,10 @@ import Submitted from "./Pages/Submitted"
 import { Navigate } from "react-router-dom"
 
 function App() {
-  let user = localStorage.getItem("user")
+  // const [user, setUser] = useState(localStorage.getItem("user"));
+  const user = localStorage.getItem("user");
 
+  console.log("re-rendered")
   return (
     <div className="App">
       <Router>
