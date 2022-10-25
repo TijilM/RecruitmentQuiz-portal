@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate, redirect } from "react-router-dom";
 
-const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
+// const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
 
 
 

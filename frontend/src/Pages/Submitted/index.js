@@ -5,7 +5,7 @@ function Submitted() {
   return (
     <div className={styles.submitted}><div className={styles.wrapperAlert}>
 
-    <div classNmae={styles.contentAlert}>
+    <div className={styles.contentAlert}>
   
       <div className={styles.topHalf}>
   
