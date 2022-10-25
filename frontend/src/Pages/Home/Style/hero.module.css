@@ -84,6 +84,11 @@ img, a {
   transition-duration: 400ms;
 }
 
+/* .loginButton {
+  opacity: 0.75;
+  cursor: auto;
+} */
+
 .spacer {
   display: flex;
   align-items: center;

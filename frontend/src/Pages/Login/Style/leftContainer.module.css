@@ -1,0 +1,120 @@
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 40px 0 0 40px;
+  padding: 12px;
+}
+
+.leftContainerForm {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 70%;
+  overflow: scroll;
+  text-align: center;
+
+  color: #444;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+
+.logo {
+  height: 18%;
+}
+
+.heading {
+  margin: 0px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* margin-bottom: 20px; */
+  text-align: center;
+}
+
+.inputBox {
+  display: block;
+  /* margin: 5px; */
+  margin-bottom: 20px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+
+.checkboxes {
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px 0;
+}
+
+.checkHeading {
+  margin-bottom: 10px;
+}
+
+.check {
+  margin: 5px 0;
+}
+
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #090963;
+  border: none;
+  color: white;
+  padding: 6px 6px;
+  font-size: 16px;
+  font-family: "Montserrat";
+  /* margin: 5px; */
+  margin-top: 20px;
+  height: 35px;
+  transition: 0.2s;
+}
+.button:hover {
+  background-color: #e6f2ff;
+  color: black;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .leftContainer {
+    border-radius: 40px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .leftContainerForm {
+    width: 100%;
+    overflow: auto;
+  }
+}

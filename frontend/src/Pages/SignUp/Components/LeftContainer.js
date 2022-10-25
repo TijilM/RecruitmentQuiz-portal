@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import logo from "../Assets/black-logo.png";
 
-const url = "http://127.0.0.1:8000/api/v1/users/signup";
-// const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
+// const url = "http://127.0.0.1:8000/api/v1/users/signup";
+const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
 
 const LeftContainer = (props) => {
   const [name, setName] = useState("");

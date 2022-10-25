@@ -1,36 +1,42 @@
-/* 
-:root {
-  
-  --shadow-dimension: 20px;
-  --blue: #0039a6;
+.questions {
+    /* margin-left: 30px; */
+    width: 80%;
+    /* text-align: center; */
+    margin: 60px auto;
 }
-.boxcontainer {
-    position: relative;
-    width: 20rem;
-    margin: 10vh auto;
- }
-.boxcontainer>div {
-    border: 2px solid var(--blue);
-    padding: 1rem 2rem;
+
+.testQuestion {
+    font-size: 30px;
+    margin-bottom: 20px;
 }
-.boxcontainer>div:after, .boxcontainer>div:before {
-    content: '';
-    background-color: var(--blue);
-    position: absolute;
+
+.testOptions {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-size: 28px;
+    margin: 0 auto;
 }
-.boxcontainer>div:before {
-    width: calc(var(--shadow-dimension) + 1px);
-    height: calc(100% +  100px + 1px);
-    left: calc(var(--shadow-dimension) * -1);
-    transform: skewy(-45deg);
-    top: calc(0.5*var(--shadow-dimension));
-    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 100px - 2px + var(--shadow-dimension)), 0% calc(100% - 100px - 2px));
+
+.testOption {
+    padding-left: 10px;
+    background-color: #F0FBFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.boxcontainer>div:after {
-    width: calc(100% + 100px);
-    height: calc(var(--shadow-dimension) + 1px);
-    left: calc(-0.5*var(--shadow-dimension) - 100px);
-    bottom: 1px;
-    transform: translateY(100%) skewx(-45deg);
-    clip-path: polygon(100px 0%, 100% 0%, 100% 100%, calc(100px + 1px) 100%);
-} */
+
+
+.testOption:has(input:checked) {
+    background-color: rgba(71, 181, 255, 0.4);
+}
+
+.testOption:hover {
+    background-color: rgba(71, 181, 255, 0.4);
+}
+
+.questionNumber {
+    margin-right: 30px;
+}

@@ -1,4 +1,4 @@
-import styles from "../Style/test.module.css"   
+import styles from "../Style/question.module.css"   
 import {useEffect,useState} from "react";
 
 
@@ -14,7 +14,7 @@ function Question(props){
             <label className={styles.testOption} key={indexVal}>
                 <input type="radio" name={props.question._id} value={indexVal} onChange={props.optionClicked} />
                 {option}
-            </label>
+            </label>    
         )
     })
 
@@ -23,8 +23,8 @@ function Question(props){
 
 
     return (
-        <div>
-            <div className={styles.testQuestion}>{props.index+1} {props.question.question}</div>
+        <div className={styles.questions}>
+            <div className={styles.testQuestion}><span className={styles.questionNumber}>{props.index+1})</span> {props.question.question}</div>
             <div className={styles.testOptions}>
                 {options}
             </div>
