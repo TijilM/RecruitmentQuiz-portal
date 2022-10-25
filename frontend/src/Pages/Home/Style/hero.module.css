@@ -78,10 +78,15 @@ img, a {
   cursor: pointer;
 }
 
-.button:hover {
+.registerButton:hover {
   background-color: #2e2d3c;
   transform: scale(1.1);
   transition-duration: 400ms;
+}
+
+.loginButton {
+  opacity: 0.75;
+  cursor: auto;
 }
 
 .spacer {

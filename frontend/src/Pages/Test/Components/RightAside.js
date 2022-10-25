@@ -45,6 +45,7 @@ function RightAside(){
             localStorage.removeItem("jwt")
             localStorage.removeItem("user")
             localStorage.removeItem("answers")
+            localStorage.removeItem("timePast")
             document.exitFullscreen()
             navigate("/submitted")
         }

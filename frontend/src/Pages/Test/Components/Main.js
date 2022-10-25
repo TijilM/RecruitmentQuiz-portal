@@ -53,7 +53,7 @@ function Main() {
             const initialAnswers = {};
 
             questions.forEach((ques) => {
-                initialAnswers[ques[0]._id] = "unanswered";
+                initialAnswers[ques._id] = "unanswered";
             })
     
             setAnswers(initialAnswers)
@@ -110,6 +110,7 @@ function Main() {
             localStorage.removeItem("jwt")
             localStorage.removeItem("user")
             localStorage.removeItem("answers")
+            localStorage.removeItem("timePast")
             document.exitFullscreen()
             navigate("/submitted")
         }

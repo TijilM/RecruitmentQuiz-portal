@@ -13,7 +13,7 @@ function Hero() {
       <img src={logo} alt="ccs-logo" className={styles.logo}/>
     
       <div className={styles.buttons}> 
-        <a href="/login"><input type="button" value="Login" className={`${styles.button} ${styles.loginButton}`}/></a>
+        <a href="#"><input type="button" value="Login" className={`${styles.button} ${styles.loginButton}`} disabled/></a>
         <a href="/signup"><input type="button" value="Register for test" className={`${styles.button} ${styles.registerButton}`}/></a>
       </div>
     

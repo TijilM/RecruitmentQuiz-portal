@@ -6,7 +6,7 @@ function Timer () {
   const [minutes, setMinutes] = React.useState(0);
   const [seconds, setSeconds] = React.useState(0);
 
-  const deadline = "October, 27, 2022";
+  const deadline = "October, 27, 2022 17:00:00";
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();    

@@ -17,11 +17,11 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/login" element={<LoginRedirect/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/instructions" element={<Instructions />}></Route>
-          {user && (<Route path="/test" element={<Test />}></Route>)}
-          <Route path="/submitted" element={<Submitted />}></Route>
+          {/* {user && (<Route path="/test" element={<Test />}></Route>)} */}
+          {/* <Route path="/submitted" element={<Submitted />}></Route> */}
           {/* <redirect to="/" /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
