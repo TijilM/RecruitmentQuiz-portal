@@ -30,7 +30,8 @@ function Main() {
                 }
             }
 
-            const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
+            // const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
+            const res = await axios.get("http://127.0.0.1:8000/api/v1/questions/getQuestions", config);
 
             const questions = res.data.data.questions;
 
@@ -102,7 +103,8 @@ function Main() {
 
         console.log("data", data)
 
-        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        // const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
 
         if(res.data.status == "success"){
             localStorage.removeItem("jwt")
@@ -125,7 +127,7 @@ function Main() {
                 </div>
             </div>
 
-            <input type="button" onClick={submitQuiz} value="Submit" />
+            <input type="button" onClick={submitQuiz} value="Submit" className={styles.submitBtn}/>
         </div>
     );
 }

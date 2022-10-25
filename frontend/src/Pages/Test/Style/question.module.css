@@ -28,6 +28,11 @@
     gap: 10px;
 }
 
+
+.testOption:has(input:checked) {
+    background-color: rgba(71, 181, 255, 0.4);
+}
+
 .testOption:hover {
     background-color: rgba(71, 181, 255, 0.4);
 }

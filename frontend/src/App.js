@@ -7,8 +7,11 @@ import LoginRedirect from "./Pages/LoginRedirect"
 import Home from "./Pages/Home";
 import Instructions from "./Pages/Instructions";
 import Submitted from "./Pages/Submitted"
+import { Navigate } from "react-router-dom"
 
 function App() {
+  let user = localStorage.getItem("user")
+
   return (
     <div className="App">
       <Router>
@@ -17,9 +20,10 @@ function App() {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/instructions" element={<Instructions />}></Route>
-          <Route path="/test" element={<Test />}></Route>
+          {user && (<Route path="/test" element={<Test />}></Route>)}
           <Route path="/submitted" element={<Submitted />}></Route>
-
+          {/* <redirect to="/" /> */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </div>

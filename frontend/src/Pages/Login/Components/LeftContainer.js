@@ -4,11 +4,17 @@ import styles from "../Style/leftContainer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import logo from "../Assets/black-logo.png";
-const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
+import { useNavigate } from "react-router-dom";
+// const url = "https://recruitment-api.ccstiet.com/api/v1/users/login";
+const url = "http://127.0.0.1:8000/api/v1/users/login";
 
 const LeftContainer = (props) => {
+  const navigate = useNavigate();
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const [button, setButton] = useState(
     <button type="submit" className={styles.button}>
@@ -26,33 +32,61 @@ const LeftContainer = (props) => {
           <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
         </button>
       );
-      try {
-        const resp = await axios.post(url, {
-         
-          email: email,
-          password: password
-        });
-        // console.log(resp.data);
-        setPassword("");
-        setEmail("");
-        
-        const checklist = document.getElementsByTagName("input");
-        for (const element of checklist) {
-          element.checked = false;
-        }
 
-        setButton(
-          <button type="submit" className={styles.button} disabled>
-            <div>Loging In</div>
-          </button>
-        );
+      try {
+        axios.post(url, {
+          email: email.trim(),
+          password: password,
+        }).then((response) => {
+          
+          if(response.data.status == "success"){
+            const users = response.data
+            console.log(users.data.user)
+            if(users.data.user.hasAttempted == true){
+              navigate("/submitted")
+            }else {
+              localStorage.setItem('jwt', users.token)
+              localStorage.setItem('user', JSON.stringify(users))
+              // console.log('users', users) // undefined
+            
+              // console.log(resp.data);
+              setPassword("");
+              setEmail("");
+              
+
+              setButton(
+                <button type="submit" className={styles.button} disabled>
+                  <div>Logging In</div>
+                </button>
+              );
+
+              navigate("/instructions")
+            }
+
+            
+          }          
+        })
+        .catch(error => {
+          setButton(
+            <button type="submit" className={styles.button}>
+              <div>Login</div>
+              <div className={styles.arrow}>&rarr;</div>
+            </button>
+          )
+
+          setMessage("Invalid email or password")
+        }) 
       } catch (error) {
+        // console.log("in error")
+        // console.log(error)
         setButton(
           <button type="submit" className={styles.button}>
-            <div>Submit</div>
+            <div>Login</div>
             <div className={styles.arrow}>&rarr;</div>
           </button>
         );
+
+        setMessage("An error occurred")
       }
 
     } else {
@@ -90,6 +124,7 @@ const LeftContainer = (props) => {
           className={styles.inputBox}
         />
         {button}
+        <small>{message}</small>
       </form>
     </div>
   );

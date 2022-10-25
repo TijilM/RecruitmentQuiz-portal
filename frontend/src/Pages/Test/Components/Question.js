@@ -14,7 +14,7 @@ function Question(props){
             <label className={styles.testOption} key={indexVal}>
                 <input type="radio" name={props.question._id} value={indexVal} onChange={props.optionClicked} />
                 {option}
-            </label>
+            </label>    
         )
     })
 
