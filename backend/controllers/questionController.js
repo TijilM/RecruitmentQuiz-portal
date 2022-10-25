@@ -90,7 +90,7 @@ exports.getQuestions = async (req, res, next) => {
       res.status(200).json({
         status: 'success',
         data: {
-          questions: assignedQuestions,
+          questions: newAssignedQuestions,
         },
       });
     } else {
