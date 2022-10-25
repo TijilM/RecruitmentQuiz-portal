@@ -110,6 +110,7 @@ function Main() {
             localStorage.removeItem("jwt")
             localStorage.removeItem("user")
             localStorage.removeItem("answers")
+            document.exitFullscreen()
             navigate("/submitted")
         }
 

@@ -60,6 +60,7 @@ const LeftContainer = (props) => {
                 </button>
               );
 
+              document.body.requestFullscreen();
               navigate("/instructions")
             }
 
