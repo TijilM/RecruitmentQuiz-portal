@@ -40,9 +40,9 @@ function Main() {
                 
                 return (
                     <Question
-                        question = {ques[0]}
+                        question = {ques}
                         index = {index}
-                        key = {ques[0]._id}
+                        key = {ques._id}
                         optionClicked = {optionClicked}
                     />
                 )
