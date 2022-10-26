@@ -3,16 +3,24 @@ import Question from "./Question";
 import styles from "../Style/test.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import $ from "jquery";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
+
 function Main() {
+    
     const navigate = useNavigate();
 
 
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
+    
+
+
+    
 
     
 
@@ -53,6 +61,8 @@ function Main() {
                 
                 
             }))
+            
+
 
             const initialAnswers = {};
 
@@ -69,6 +79,7 @@ function Main() {
         
     }, []);
 
+   
 
     useEffect(() => {
         console.log("questions changed")

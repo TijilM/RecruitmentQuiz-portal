@@ -5,6 +5,7 @@ import Signup from "./Pages/SignUp";
 import Login from "./Pages/Login"
 import LoginRedirect from "./Pages/LoginRedirect"
 import Home from "./Pages/Home";
+import Disqualified from "./Pages/Disqualified";
 import Instructions from "./Pages/Instructions";
 import Submitted from "./Pages/Submitted"
 import { Navigate } from "react-router-dom"
@@ -29,6 +30,7 @@ function App() {
           <Route path="/instructions" element={<Instructions updateState={updateState} />}></Route>
           {user && (<Route path="/test" element={<Test />}></Route>)}
           <Route path="/submitted" element={<Submitted />}></Route>
+          <Route path="/disqualified" element={<Disqualified />}></Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>

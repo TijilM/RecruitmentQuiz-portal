@@ -149,3 +149,10 @@
 .submitBtn:hover {
     background-color: limegreen;
 }
+
+.cheatAlert{
+    font-family: "monospace";
+    color: rgb(235, 86, 210);
+    justify-content: center;
+    padding: 2vw;
+}

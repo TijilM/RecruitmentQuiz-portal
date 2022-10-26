@@ -1,7 +1,8 @@
 import styles from "../Style/test.module.css"
-import React from "react";
+import React, { useEffect,useState } from "react";
 import axios from "axios";
 import { useNavigate, redirect } from "react-router-dom";
+import $ from "jquery";
 
 // const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
 
@@ -9,8 +10,93 @@ import { useNavigate, redirect } from "react-router-dom";
 
 // console.log(User.data.user)
 function LeftAside(){
-    document.documentElement.requestFullscreen()
+    const [cheatAlert, setCheatAlert] = useState([])     
+    const [disqualified, setDisqualified] = useState(0)
+
     const navigate = useNavigate()
+    
+
+
+    const submitQuiz = async () => {
+   
+        const token = localStorage.getItem("jwt")
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
+        }
+
+        const storedAnswers = JSON.parse(localStorage.getItem("answers"))
+        const keys = Object.keys(storedAnswers)
+
+        let finalAnswers = []
+        for(let i=0; i<keys.length; i++){
+
+            finalAnswers.push([keys[i], storedAnswers[keys[i]]])
+        }
+
+
+        const data = {
+            "questionIdsAndAnswers": finalAnswers,
+        }
+
+        console.log("data", data)
+
+        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+
+        if(res.data.status == "success"){
+            localStorage.removeItem("jwt")
+            localStorage.removeItem("user")
+            localStorage.removeItem("answers")
+            localStorage.removeItem("timePast")
+            document.exitFullscreen()
+            navigate("/disqualified");
+        }
+
+    }
+    useEffect(() => {
+        setCheatAlert(() => {
+                
+            return (
+               <div className={styles.cheatAlert}>
+                    <h3>Do not refresh the page or close the tab. Doing so will result in disqualification.</h3>
+                </div>
+    
+            )
+            
+            
+        })
+    }, []);
+    
+
+    $(window).blur(function() {
+        if(!document.hasFocus()) {
+            setCheatAlert(() => {
+                
+                return (
+                   <div className={styles.cheatAlert}>
+                        <h3>Final warning!</h3>
+                    </div>
+
+                )
+                
+                
+            })
+            setDisqualified(disqualified + 1);
+            
+        }
+    
+});
+useEffect(() => {
+if(disqualified > 1) {
+    
+    submitQuiz();
+}
+
+}, [disqualified])
+    
 
 
     const localUser = localStorage.getItem("user")
@@ -50,6 +136,7 @@ function LeftAside(){
                 <div className={styles.testName}>{User.data.user.name}</div>
                 <div className={styles.testEmail}>{User.data.user.email}</div>
             </div>
+            <div>{cheatAlert}</div>
 
             <div className={styles.testLeftAsideBottom}>
                 <div className={styles.testContact}>
