@@ -15,34 +15,10 @@ function Main() {
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
-    const [cheatAlert, setCheatAlert] = useState([])     
-    const [disqualified, setDisqualified] = useState(0)
-
-
-    $(window).blur(function() {
-            if(!document.hasFocus()) {
-                setCheatAlert(() => {
-                    
-                    return (
-                       <div className={styles.cheatAlert}>
-                            <h3>Final warning!</h3>
-                        </div>
     
-                    )
-                    
-                    
-                })
-                setDisqualified(disqualified + 1);
-                
-            }
-        
-    });
-useEffect(() => {
-    if(disqualified > 1) {
-        navigate("/disqualified")
-    }
 
-}, [disqualified])
+
+    
 
 
     const optionClicked = (e) => {
@@ -81,17 +57,7 @@ useEffect(() => {
                 
                 
             }))
-            setCheatAlert(() => {
-                
-                return (
-                   <div className={styles.cheatAlert}>
-                        <h3>Do not refresh the page or close the tab. Doing so will result in disqualification.</h3>
-                    </div>
-
-                )
-                
-                
-            })
+            
 
 
             const initialAnswers = {};
@@ -109,9 +75,7 @@ useEffect(() => {
         
     }, []);
 
-    useEffect(() => {
-        console.log("cheat alert")
-    }, [cheatAlert])
+   
 
     useEffect(() => {
         console.log("questions changed")
@@ -171,7 +135,7 @@ useEffect(() => {
         <div>
             <div className={styles.boxcontainer}>
                 <div>
-                    <h1 className={styles.testHeading}>Recruitment Quiz</h1><div>{cheatAlert}</div>
+                    <h1 className={styles.testHeading}>Recruitment Quiz</h1>
                     {questionsElem}
                 </div>
             </div>

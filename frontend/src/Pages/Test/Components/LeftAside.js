@@ -1,7 +1,8 @@
 import styles from "../Style/test.module.css"
-import React from "react";
+import React, { useEffect,useState } from "react";
 import axios from "axios";
 import { useNavigate, redirect } from "react-router-dom";
+import $ from "jquery";
 
 // const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
 
@@ -9,7 +10,50 @@ import { useNavigate, redirect } from "react-router-dom";
 
 // console.log(User.data.user)
 function LeftAside(){
+    const [cheatAlert, setCheatAlert] = useState([])     
+    const [disqualified, setDisqualified] = useState(0)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        setCheatAlert(() => {
+                
+            return (
+               <div className={styles.cheatAlert}>
+                    <h3>Do not refresh the page or close the tab. Doing so will result in disqualification.</h3>
+                </div>
+    
+            )
+            
+            
+        })
+    }, []);
+    
+
+    $(window).blur(function() {
+        if(!document.hasFocus()) {
+            setCheatAlert(() => {
+                
+                return (
+                   <div className={styles.cheatAlert}>
+                        <h3>Final warning!</h3>
+                    </div>
+
+                )
+                
+                
+            })
+            setDisqualified(disqualified + 1);
+            
+        }
+    
+});
+useEffect(() => {
+if(disqualified > 1) {
+    navigate("/disqualified")
+}
+
+}, [disqualified])
+    
 
 
     const localUser = localStorage.getItem("user")
@@ -48,6 +92,7 @@ function LeftAside(){
                 <div className={styles.testName}>{User.data.user.name}</div>
                 <div className={styles.testEmail}>{User.data.user.email}</div>
             </div>
+            <div>{cheatAlert}</div>
 
             <div className={styles.testLeftAsideBottom}>
                 <div className={styles.testContact}>
