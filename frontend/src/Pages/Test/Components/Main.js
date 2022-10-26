@@ -3,15 +3,38 @@ import Question from "./Question";
 import styles from "../Style/test.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import $ from "jquery";
+
+
 
 function Main() {
+    
     const navigate = useNavigate();
 
 
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
+    const [cheatAlert, setCheatAlert] = useState([])     
 
+
+    $(window).blur(function() {
+            if(!document.hasFocus()) {
+                setCheatAlert(() => {
+                    
+                    return (
+                       <div className={styles.cheatAlert}>
+                            <h3>Final warning!</h3>
+                        </div>
+    
+                    )
+                    
+                    
+                })
+                
+            }
+        
+    });
 
     const optionClicked = (e) => {
         setAnswers(prevAns => (
@@ -49,6 +72,18 @@ function Main() {
                 
                 
             }))
+            setCheatAlert(() => {
+                
+                return (
+                   <div className={styles.cheatAlert}>
+                        <h3>Do not refresh the page or close the tab. Doing so will result in disqualification.</h3>
+                    </div>
+
+                )
+                
+                
+            })
+
 
             const initialAnswers = {};
 
@@ -65,6 +100,9 @@ function Main() {
         
     }, []);
 
+    useEffect(() => {
+        console.log("cheat alert")
+    }, [cheatAlert])
 
     useEffect(() => {
         console.log("questions changed")
@@ -124,7 +162,7 @@ function Main() {
         <div>
             <div className={styles.boxcontainer}>
                 <div>
-                    <h1 className={styles.testHeading}>Recruitment Quiz</h1>
+                    <h1 className={styles.testHeading}>Recruitment Quiz</h1><div>{cheatAlert}</div>
                     {questionsElem}
                 </div>
             </div>
