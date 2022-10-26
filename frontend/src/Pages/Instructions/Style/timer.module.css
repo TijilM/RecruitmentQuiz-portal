@@ -34,7 +34,9 @@
   }
 
   .startTest {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0px auto;
     margin-top: 40px;
     width: 150px;
@@ -49,4 +51,9 @@
   .startTest:hover {
     background-color: green;
     color: white;
+  }
+
+  .message {
+    margin-top: 20px;
+    color: red;
   }

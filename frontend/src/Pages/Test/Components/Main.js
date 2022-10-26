@@ -3,14 +3,26 @@ import Question from "./Question";
 import styles from "../Style/test.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import $ from "jquery";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 
 function Main() {
+    
     const navigate = useNavigate();
 
 
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
+    
+
+
+    
+
+    
 
 
     const optionClicked = (e) => {
@@ -49,6 +61,8 @@ function Main() {
                 
                 
             }))
+            
+
 
             const initialAnswers = {};
 
@@ -65,6 +79,7 @@ function Main() {
         
     }, []);
 
+   
 
     useEffect(() => {
         console.log("questions changed")
@@ -78,7 +93,11 @@ function Main() {
 
 
     const submitQuiz = async () => {
-   
+        setButton(
+            <button type="submit" className={styles.submitBtn} disabled>
+              <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
+            </button>
+        );
         const token = localStorage.getItem("jwt")
 
         const config = {
@@ -107,6 +126,11 @@ function Main() {
         // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
 
         if(res.data.status == "success"){
+            setButton(
+                <button type="submit" className={styles.submitBtn} disabled>
+                    <div>Submitted</div>
+                </button>
+            );
             localStorage.removeItem("jwt")
             localStorage.removeItem("user")
             localStorage.removeItem("answers")
@@ -116,6 +140,12 @@ function Main() {
         }
 
     }
+
+    const [button, setButton] = useState(
+        <button type="submit" onClick={submitQuiz}className={styles.submitBtn}>
+            <div>Submit</div>
+        </button>
+    );
 
 
 
@@ -129,7 +159,7 @@ function Main() {
                 </div>
             </div>
 
-            <input type="button" onClick={submitQuiz} value="Submit" className={styles.submitBtn}/>
+            {button}
         </div>
     );
 }

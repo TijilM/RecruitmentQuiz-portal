@@ -1,7 +1,7 @@
 import styles from "../Style/looks.module.css";
 import Landing from "../Assets/Landing.png";
 import Timer from "./Timer";
-function Looks() {
+function Looks({updateState}) {
     return (
         <div className={styles.lookscontainer} id="whyccsid">
             <div className={styles.contentSection}>
@@ -32,7 +32,7 @@ function Looks() {
                         </div>
                         <div className={styles.container}>
                             <h1>Quiz Starts in :</h1>
-                            <Timer/>
+                            <Timer updateState={updateState}/>
                         </div>
                         <div className={styles.heading1}>
                             <h1>Best of Luck!</h1>
