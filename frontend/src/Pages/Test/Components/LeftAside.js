@@ -9,6 +9,7 @@ import { useNavigate, redirect } from "react-router-dom";
 
 // console.log(User.data.user)
 function LeftAside(){
+    document.documentElement.requestFullscreen()
     const navigate = useNavigate()
 
 
@@ -33,7 +34,8 @@ function LeftAside(){
     const logout = () => {
         localStorage.removeItem("user")
         localStorage.removeItem("jwt")
-        localStorage.remoteItem("answers")
+        localStorage.removeItem("answers")
+        localStorage.removeItem("timePast")
 
         navigate("/")
     }

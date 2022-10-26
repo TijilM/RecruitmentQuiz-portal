@@ -1,8 +1,8 @@
 import Looks from "./Components/Looks";
-function Instructions(){
+function Instructions({updateState}){
     return (
         <div>
-            <Looks/>
+            <Looks updateState={updateState}/>
         </div>
     )
 }

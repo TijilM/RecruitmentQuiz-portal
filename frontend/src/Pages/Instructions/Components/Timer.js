@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "../Style/timer.module.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, redirect } from "react-router-dom"
 
-function Timer () {
+
+
+function Timer ({updateState}) {
   const navigate = useNavigate();
 
   const [days, setDays] = React.useState(0);
@@ -14,15 +16,21 @@ function Timer () {
     
   )
 
+  const [permissionsGranted, setPermissionsGranted] = useState(false)
+  const [timerDone, setTimerDone] = useState(false)
+  const [message, setMessage] = useState("") 
+  const [count, setCount] = useState(0)
+
   const startTest = () => {
-    document.documentElement.requestFullscreen()
-    const user = localStorage.getItem("user")
-    console.log(user)
+    // const user = localStorage.getItem("user")
+    // console.log(props.updateState)
+    updateState()
+    // console.log(user)
     navigate("/test");
   }
 
 
-  const deadline = "October, 25, 2022 21:00:00";
+  const deadline = "October, 26, 2022 21:42:20";
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();    
@@ -33,21 +41,42 @@ function Timer () {
     setSeconds(Math.max(0,Math.floor((time / 1000) % 60)));
   };
 
+
+
+  const timerFinished = () => {
+    console.log("checking cond")
+
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    })
+    .then((stream) => {
+      // console.log("permission granted")
+      setButton(
+        <div><input type="button" value="Start Test" onClick={startTest} className={styles.startTest} /></div>
+      )
+      setMessage("")
+      setPermissionsGranted(true)
+      setMessage("")
+    })
+    .catch((err) => {
+      // console.log("permission not granted")
+      setMessage("* Give Camera and Microphone access and refresh this page to gain access to test *")
+    });
+  }
+
+
   React.useEffect(() => {
     const interval = setInterval(() => {
       if(Date.now() - Date.parse(deadline) > -1000){
         console.log("timer done")
         clearInterval(interval)
-        setButton(
-          <div><input type="Button" value="Start Test" onClick={startTest} className={styles.startTest} /></div>
-        )
-      }else {
+ 
 
+        timerFinished()
       }
-
       getTime()
-      
-      
+
     }, 1000);
 
     return () => clearInterval(interval);
@@ -82,6 +111,7 @@ function Timer () {
         </div>
       </div>
       {button}
+      <div className={styles.message}>{message}</div>
     </div>
   );
 };
