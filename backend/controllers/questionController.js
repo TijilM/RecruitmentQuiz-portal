@@ -73,12 +73,17 @@ exports.getQuestions = async (req, res, next) => {
         ...shuffleArray(hardQuestions).slice(0, 3),
       ];
 
+      let newAssignedQuestions = assignedQuestions.map((question) => ({
+        question: question.question,
+        options: question.options,
+      }));
+
       // Update user score and mark that he has attempted the test
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
         {
           beenAssigned: true,
-          newAssignedQuestions: assignedQuestions,
+          newAssignedQuestions,
         },
         {
           new: true,
@@ -90,7 +95,7 @@ exports.getQuestions = async (req, res, next) => {
       res.status(200).json({
         status: 'success',
         data: {
-          questions: assignedQuestions,
+          questions: newAssignedQuestions,
         },
       });
     } else {
