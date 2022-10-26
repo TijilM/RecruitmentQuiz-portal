@@ -16,6 +16,7 @@ function Main() {
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
     const [cheatAlert, setCheatAlert] = useState([])     
+    const [disqualified, setDisqualified] = useState(0)
 
 
     $(window).blur(function() {
@@ -31,10 +32,18 @@ function Main() {
                     
                     
                 })
+                setDisqualified(disqualified + 1);
                 
             }
         
     });
+useEffect(() => {
+    if(disqualified > 1) {
+        navigate("/submitted")
+    }
+
+}, [disqualified])
+
 
     const optionClicked = (e) => {
         setAnswers(prevAns => (
