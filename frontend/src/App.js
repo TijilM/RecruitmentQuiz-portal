@@ -13,6 +13,11 @@ import { Navigate } from "react-router-dom"
 function App() {
   // const [user, setUser] = useState(localStorage.getItem("user"));
   const user = localStorage.getItem("user");
+  const [count, setCount] = useState(0);
+
+  const updateState = () => {
+    setCount(prevCount => prevCount+1)
+  }
 
   console.log("re-rendered")
   return (
@@ -22,7 +27,7 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/instructions" element={<Instructions />}></Route>
+          <Route path="/instructions" element={<Instructions updateState={updateState} />}></Route>
           {user && (<Route path="/test" element={<Test />}></Route>)}
           <Route path="/submitted" element={<Submitted />}></Route>
           <Route path="/disqualified" element={<Disqualified />}></Route>

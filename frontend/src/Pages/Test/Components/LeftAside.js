@@ -12,6 +12,7 @@ import $ from "jquery";
 function LeftAside(){
     const [cheatAlert, setCheatAlert] = useState([])     
     const [disqualified, setDisqualified] = useState(0)
+
     const navigate = useNavigate()
     
 
@@ -119,7 +120,8 @@ if(disqualified > 1) {
     const logout = () => {
         localStorage.removeItem("user")
         localStorage.removeItem("jwt")
-        localStorage.remoteItem("answers")
+        localStorage.removeItem("answers")
+        localStorage.removeItem("timePast")
 
         navigate("/")
     }
