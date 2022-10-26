@@ -39,7 +39,7 @@ function Main() {
     });
 useEffect(() => {
     if(disqualified > 1) {
-        navigate("/submitted")
+        navigate("/disqualified")
     }
 
 }, [disqualified])
