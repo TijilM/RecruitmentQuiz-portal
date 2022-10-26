@@ -68,9 +68,9 @@ exports.getQuestions = async (req, res, next) => {
       );
 
       const assignedQuestions = [
-        ...shuffleArray(easyQuestions).slice(0, 3),
+        ...shuffleArray(easyQuestions).slice(0, 4),
         ...shuffleArray(mediumQuestions).slice(0, 3),
-        ...shuffleArray(hardQuestions).slice(0, 4),
+        ...shuffleArray(hardQuestions).slice(0, 3),
       ];
 
       // Update user score and mark that he has attempted the test
@@ -90,7 +90,7 @@ exports.getQuestions = async (req, res, next) => {
       res.status(200).json({
         status: 'success',
         data: {
-          questions: newAssignedQuestions,
+          questions: assignedQuestions,
         },
       });
     } else {
