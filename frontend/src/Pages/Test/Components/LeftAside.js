@@ -13,7 +13,48 @@ function LeftAside(){
     const [cheatAlert, setCheatAlert] = useState([])     
     const [disqualified, setDisqualified] = useState(0)
     const navigate = useNavigate()
+    
 
+
+    const submitQuiz = async () => {
+   
+        const token = localStorage.getItem("jwt")
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
+        }
+
+        const storedAnswers = JSON.parse(localStorage.getItem("answers"))
+        const keys = Object.keys(storedAnswers)
+
+        let finalAnswers = []
+        for(let i=0; i<keys.length; i++){
+
+            finalAnswers.push([keys[i], storedAnswers[keys[i]]])
+        }
+
+
+        const data = {
+            "questionIdsAndAnswers": finalAnswers,
+        }
+
+        console.log("data", data)
+
+        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+
+        if(res.data.status == "success"){
+            localStorage.removeItem("jwt")
+            localStorage.removeItem("user")
+            localStorage.removeItem("answers")
+            localStorage.removeItem("timePast")
+            document.exitFullscreen()
+            navigate("/disqualified");
+        }
+
+    }
     useEffect(() => {
         setCheatAlert(() => {
                 
@@ -49,7 +90,8 @@ function LeftAside(){
 });
 useEffect(() => {
 if(disqualified > 1) {
-    navigate("/disqualified")
+    
+    submitQuiz();
 }
 
 }, [disqualified])
