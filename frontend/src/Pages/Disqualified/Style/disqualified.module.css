@@ -37,7 +37,7 @@
   position: relative;
   padding: 40px 0;
   background: rgb(0,0,0);
-  background: -webkit-linear-gradient(45deg, #c936d6, #702353);
+  background: -webkit-linear-gradient(45deg, #d63636, #ff0000);
 }
 
 .topHalf tp {
@@ -46,13 +46,14 @@
 }
 
 .th1 {
-  margin-left: 4.6vw;
+  /* margin-left: 4.6vw; */
   font-size: 2.25rem;
-  
+  text-align: center;
   display: block;
   font-weight: 500;
   letter-spacing: 0.15rem;
   text-shadow: 0 2px rgba(128, 128, 128, 0.6);
+  margin: 0 auto;
 }
         
 

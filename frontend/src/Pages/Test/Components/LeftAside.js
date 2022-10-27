@@ -10,6 +10,7 @@ import $ from "jquery";
 
 // console.log(User.data.user)
 function LeftAside(){
+    document.documentElement.requestFullscreen()
     const [cheatAlert, setCheatAlert] = useState([])     
     const [disqualified, setDisqualified] = useState(0)
 
@@ -90,7 +91,7 @@ function LeftAside(){
     
 });
 useEffect(() => {
-if(disqualified > 1) {
+if(disqualified > 2) {
     
     submitQuiz();
 }
@@ -121,7 +122,7 @@ if(disqualified > 1) {
         localStorage.removeItem("user")
         localStorage.removeItem("jwt")
         localStorage.removeItem("answers")
-        localStorage.removeItem("timePast")
+        // localStorage.removeItem("timePast")
 
         navigate("/")
     }
