@@ -74,6 +74,7 @@ exports.getQuestions = async (req, res, next) => {
       ];
 
       let newAssignedQuestions = assignedQuestions.map((question) => ({
+        _id: question._id,
         question: question.question,
         options: question.options,
       }));
