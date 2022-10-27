@@ -91,7 +91,12 @@ function Main() {
         localStorage.setItem("answers", JSON.stringify(answers));
     }, [answers])
 
-
+    const confirmSubmit = () => {
+        if(window.confirm("Are you sure you want to submit?")){
+            submitQuiz()
+        }
+    }
+    
     const submitQuiz = async () => {
         setButton(
             <button type="submit" className={styles.submitBtn} disabled>
@@ -142,7 +147,7 @@ function Main() {
     }
 
     const [button, setButton] = useState(
-        <button type="submit" onClick={submitQuiz}className={styles.submitBtn}>
+        <button type="submit" onClick={confirmSubmit} className={styles.submitBtn}>
             <div>Submit</div>
         </button>
     );
