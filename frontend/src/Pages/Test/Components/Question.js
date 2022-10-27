@@ -5,6 +5,7 @@ function Question(props) {
     // console.log(props.qid)
 
     const options = props.question.options.map((option, indexVal) => {
+        console.log(props.question)
         return (
             <label className={styles.testOption} key={indexVal}>
                 <input type="radio" name={props.question._id} value={indexVal} onChange={props.optionClicked} />
