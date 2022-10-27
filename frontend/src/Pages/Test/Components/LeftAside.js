@@ -90,7 +90,7 @@ function LeftAside(){
     
 });
 useEffect(() => {
-if(disqualified > 1) {
+if(disqualified > 2) {
     
     submitQuiz();
 }
