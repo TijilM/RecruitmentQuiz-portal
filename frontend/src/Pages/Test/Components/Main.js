@@ -17,8 +17,8 @@ function Main() {
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
+    const [confirmSubmit, setConfirmSubmit] = useState([])  
     
-
 
     
 
@@ -91,11 +91,8 @@ function Main() {
         localStorage.setItem("answers", JSON.stringify(answers));
     }, [answers])
 
-    const confirmSubmit = () => {
-        if(window.confirm("Are you sure you want to submit?")){
-            submitQuiz()
-        }
-    }
+    
+
     
     const submitQuiz = async () => {
         setButton(
@@ -147,10 +144,47 @@ function Main() {
     }
 
     const [button, setButton] = useState(
-        <button type="submit" onClick={confirmSubmit} className={styles.submitBtn}>
+        <button type="submit" onClick={submitQuiz} className={styles.submitBtn}>
+        
+            <div>Final Submit</div>
+        </button>
+    );
+    useEffect(() => {
+        setConfirmSubmit(() => {
+                
+            return (
+               <div>
+                    {Cbutton}
+                </div>
+    
+            )
+            
+            
+        })
+    }, []);
+    const submitFunc = () => {
+        setConfirmSubmit(() => {
+
+            return (
+                <div>
+                    <h3>Are you sure you want to submit?</h3>
+                   {button}
+                </div>
+
+            )
+
+
+        })
+    }
+
+    const [Cbutton, setCButton] = useState(
+        <button type="submit" onClick={submitFunc} className={styles.submitBtn}>
+        <div>{confirmSubmit}</div>
             <div>Submit</div>
         </button>
     );
+
+    
 
 
 
@@ -164,7 +198,7 @@ function Main() {
                 </div>
             </div>
 
-            {button}
+            {confirmSubmit}
         </div>
     );
 }
