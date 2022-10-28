@@ -12,11 +12,33 @@ import { Navigate } from "react-router-dom"
 
 function App() {
   // const [user, setUser] = useState(localStorage.getItem("user"));
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
   const [count, setCount] = useState(0);
 
   const updateState = () => {
     setCount(prevCount => prevCount+1)
+  }
+
+  const checkDeadline = () => {
+    // user.data.user.shift==1?(Date.now()-Date.parse("October, 28, 2022 01:00:00")>-2000?true:false):(Date.now()-Date.parse("October, 28, 2022 21:30:00")>-2000?true:false)
+    console.log(user.data.user.shift)
+    if(user.data.user.shift == 1){
+      if(Date.now() - Date.parse("October, 28, 2022 01:00:00") > -2000){
+        // console.log("true")
+        return true
+      }else {
+        // console.log("false")
+        return false
+      }
+    }else {
+      if(Date.now() - Date.parse("October, 28, 2022 21:30:00") > -2000){
+        // console.log("true")
+        return true
+      }else {
+        // console.log("false")
+        return false
+      }
+    }
   }
 
   console.log("re-rendered")
@@ -28,7 +50,11 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/instructions" element={<Instructions updateState={updateState} />}></Route>
-          {user && (<Route path="/test" element={<Test />}></Route>)}
+          {
+            user 
+            && checkDeadline() 
+            && (<Route path="/test" element={<Test />}></Route>)
+          }
           <Route path="/submitted" element={<Submitted />}></Route>
           <Route path="/disqualified" element={<Disqualified />}></Route>
           <Route path="*" element={<Navigate to="/" />} />

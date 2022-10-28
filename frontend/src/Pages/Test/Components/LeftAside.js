@@ -1,7 +1,7 @@
 import styles from "../Style/test.module.css"
 import React, { useEffect,useState } from "react";
 import axios from "axios";
-import { useNavigate, redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import $ from "jquery";
 
 // const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
@@ -10,11 +10,12 @@ import $ from "jquery";
 
 // console.log(User.data.user)
 function LeftAside(){
+    const navigate = useNavigate()
+
     document.documentElement.requestFullscreen()
     const [cheatAlert, setCheatAlert] = useState([])     
     const [disqualified, setDisqualified] = useState(0)
 
-    const navigate = useNavigate()
     
 
 
@@ -42,7 +43,7 @@ function LeftAside(){
             "questionIdsAndAnswers": finalAnswers,
         }
 
-        console.log("data", data)
+        // console.log("data", data)
 
         // const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
         const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
@@ -101,22 +102,9 @@ if(disqualified > 2) {
 
 
     const localUser = localStorage.getItem("user")
-    // if(!localUser){
-    //     console.log("redirecting")
-    //     navigate("/login")
-    // }
+  
     const User = JSON.parse(localUser);
-    // const [post, setPost] = React.useState(null);
-    // React.useEffect(() => {
-        
-    //     axios.get(baseURL, {headers:{
-    //         "Authorization" : `Bearer ${token}`
-            
-    //       }}).then((response) => {
-    //         setPost(response.data);
-    //       console.log(response.data);
-    //     });
-    //   }, []);if (!post) return null;
+
 
     const logout = () => {
         localStorage.removeItem("user")

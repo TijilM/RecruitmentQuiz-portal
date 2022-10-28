@@ -81,13 +81,13 @@ function Main() {
 
    
 
-    useEffect(() => {
-        console.log("questions changed")
-    }, [questionsElem])
+    // useEffect(() => {
+    //     console.log("questions changed")
+    // }, [questionsElem])
 
     useEffect(() => {
-        console.log("called")
-        console.log(answers)
+        // console.log("called")
+        // console.log(answers)
         localStorage.setItem("answers", JSON.stringify(answers));
     }, [answers])
 
@@ -122,7 +122,7 @@ function Main() {
             "questionIdsAndAnswers": finalAnswers,
         }
 
-        console.log("data", data)
+        // console.log("data", data)
 
         // const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
         const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
