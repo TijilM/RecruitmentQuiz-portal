@@ -20,6 +20,8 @@ function Timer ({updateState}) {
   const [timerDone, setTimerDone] = useState(false)
   const [message, setMessage] = useState("") 
   const [count, setCount] = useState(0)
+  // const [deadline, setDeadline] = useState("");
+
 
   const startTest = () => {
     // const user = localStorage.getItem("user")
@@ -29,8 +31,18 @@ function Timer ({updateState}) {
     navigate("/test");
   }
 
+  const user = JSON.parse(localStorage.getItem("user"))
+  // console.log(user.data.user.shift)
+  const shift = user.data.user.shift;
+  let deadline = ""
+  if(shift == 1){
+    deadline = "October, 28, 2022 21:00:00";
+  }else {
+    deadline = "October, 28, 2022 21:30:00";
 
-  const deadline = "October, 26, 2022 21:42:20";
+  }
+
+  
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();    

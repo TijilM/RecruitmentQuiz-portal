@@ -60,7 +60,7 @@ function RightAside(){
         <div>
             <div className={styles.testTimer}>
 
-                <Countdown date={Date.now() + 10*60*1000 - timePast} onComplete={submitQuiz} onTick={timerTick} className={styles.testTime}/>
+                <Countdown date={Date.now() + 15*60*1000 - timePast} onComplete={submitQuiz} onTick={timerTick} className={styles.testTime}/>
 
                 <div className={styles.timerText}>TIME REMAINING</div>
             </div>
