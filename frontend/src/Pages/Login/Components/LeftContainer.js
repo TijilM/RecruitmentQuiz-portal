@@ -41,7 +41,7 @@ const LeftContainer = (props) => {
           
           if(response.data.status == "success"){
             const users = response.data
-            console.log(users.data.user)
+            // console.log(users.data.user)
             if(users.data.user.hasAttempted == true){
               navigate("/submitted")
             }else {

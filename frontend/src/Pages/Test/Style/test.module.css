@@ -14,6 +14,7 @@
     width: 17%;
     height: 100vh;
     background-color: #06283D;
+    font-family: "poppins";
 }
 
 .testMain {
@@ -21,10 +22,11 @@
     min-height: 100vh;
     background-color: #DFF6FF;
     margin-left: 17%;
+    font-family: "poppins";
 }
 
 .testHeading {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 40px;
     text-align: center;
     margin-bottom: 30px;
@@ -36,6 +38,7 @@
     width: 21%;
     height: 100vh;
     background-color: #06283D;
+    font-family: "poppins";
 }
 
 .testLogo {
@@ -148,4 +151,12 @@
 
 .submitBtn:hover {
     background-color: limegreen;
+}
+
+.cheatAlert{
+    /* font-family: "monospace"; */
+    color: rgb(235, 86, 210);
+    justify-content: center;
+    padding: 2vw;
+    background-color: aliceblue;
 }

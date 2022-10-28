@@ -3,14 +3,26 @@ import Question from "./Question";
 import styles from "../Style/test.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import $ from "jquery";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 
 function Main() {
+    
     const navigate = useNavigate();
 
 
     // const [questions, setQuestions] = useState([])
     const [questionsElem, setQuestionsElem] = useState([])
     const [answers, setAnswers] = useState({})
+    const [confirmSubmit, setConfirmSubmit] = useState([])  
+    
+
+    
+
+    
 
 
     const optionClicked = (e) => {
@@ -30,8 +42,8 @@ function Main() {
                 }
             }
 
-            // const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
-            const res = await axios.get("http://127.0.0.1:8000/api/v1/questions/getQuestions", config);
+            const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
+            // const res = await axios.get("http://127.0.0.1:8000/api/v1/questions/getQuestions", config);
 
             const questions = res.data.data.questions;
 
@@ -49,6 +61,8 @@ function Main() {
                 
                 
             }))
+            
+
 
             const initialAnswers = {};
 
@@ -65,20 +79,27 @@ function Main() {
         
     }, []);
 
+   
+
+    // useEffect(() => {
+    //     console.log("questions changed")
+    // }, [questionsElem])
 
     useEffect(() => {
-        console.log("questions changed")
-    }, [questionsElem])
-
-    useEffect(() => {
-        console.log("called")
-        console.log(answers)
+        // console.log("called")
+        // console.log(answers)
         localStorage.setItem("answers", JSON.stringify(answers));
     }, [answers])
 
+    
 
+    
     const submitQuiz = async () => {
-   
+        setButton(
+            <button type="submit" className={styles.submitBtn} disabled>
+              <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
+            </button>
+        );
         const token = localStorage.getItem("jwt")
 
         const config = {
@@ -101,12 +122,17 @@ function Main() {
             "questionIdsAndAnswers": finalAnswers,
         }
 
-        console.log("data", data)
+        // console.log("data", data)
 
-        // const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
-        const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
 
         if(res.data.status == "success"){
+            setButton(
+                <button type="submit" className={styles.submitBtn} disabled>
+                    <div>Submitted</div>
+                </button>
+            );
             localStorage.removeItem("jwt")
             localStorage.removeItem("user")
             localStorage.removeItem("answers")
@@ -116,6 +142,49 @@ function Main() {
         }
 
     }
+
+    const [button, setButton] = useState(
+        <button type="submit" onClick={submitQuiz} className={styles.submitBtn}>
+        
+            <div>Final Submit</div>
+        </button>
+    );
+    useEffect(() => {
+        setConfirmSubmit(() => {
+                
+            return (
+               <div>
+                    {Cbutton}
+                </div>
+    
+            )
+            
+            
+        })
+    }, []);
+    const submitFunc = () => {
+        setConfirmSubmit(() => {
+
+            return (
+                <div>
+                    <h3>Are you sure you want to submit?</h3>
+                   {button}
+                </div>
+
+            )
+
+
+        })
+    }
+
+    const [Cbutton, setCButton] = useState(
+        <button type="submit" onClick={submitFunc} className={styles.submitBtn}>
+        <div>{confirmSubmit}</div>
+            <div>Submit</div>
+        </button>
+    );
+
+    
 
 
 
@@ -129,7 +198,7 @@ function Main() {
                 </div>
             </div>
 
-            <input type="button" onClick={submitQuiz} value="Submit" className={styles.submitBtn}/>
+            {confirmSubmit}
         </div>
     );
 }

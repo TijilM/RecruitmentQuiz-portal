@@ -78,13 +78,13 @@ img, a {
   cursor: pointer;
 }
 
-.registerButton:hover {
+.loginButton:hover {
   background-color: #2e2d3c;
   transform: scale(1.1);
   transition-duration: 400ms;
 }
 
-.loginButton {
+.registerButton {
   opacity: 0.75;
   cursor: auto;
 }
