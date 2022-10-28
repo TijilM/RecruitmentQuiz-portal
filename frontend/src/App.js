@@ -21,7 +21,7 @@ function App() {
 
   const checkDeadline = () => {
     // user.data.user.shift==1?(Date.now()-Date.parse("October, 28, 2022 01:00:00")>-2000?true:false):(Date.now()-Date.parse("October, 28, 2022 21:30:00")>-2000?true:false)
-    console.log(user.data.user.shift)
+    // console.log(user.data.user.shift)
     if(user.data.user.shift == 1){
       if(Date.now() - Date.parse("October, 28, 2022 21:00:00") > -2000){
         // console.log("true")
@@ -41,7 +41,7 @@ function App() {
     }
   }
 
-  console.log("re-rendered")
+  // console.log("re-rendered")
   return (
     <div className="App">
       <Router>

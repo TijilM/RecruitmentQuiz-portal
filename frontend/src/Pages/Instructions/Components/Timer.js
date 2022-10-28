@@ -56,7 +56,7 @@ function Timer ({updateState}) {
 
 
   const timerFinished = () => {
-    console.log("checking cond")
+    // console.log("checking cond")
 
     navigator.mediaDevices.getUserMedia({
       video: true,
@@ -81,7 +81,7 @@ function Timer ({updateState}) {
   React.useEffect(() => {
     const interval = setInterval(() => {
       if(Date.now() - Date.parse(deadline) > -1000){
-        console.log("timer done")
+        // console.log("timer done")
         clearInterval(interval)
  
 
