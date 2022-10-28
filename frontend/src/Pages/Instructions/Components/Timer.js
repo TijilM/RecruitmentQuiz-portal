@@ -69,7 +69,7 @@ function Timer ({updateState}) {
       )
       setMessage("")
       setPermissionsGranted(true)
-      setMessage("")
+      // setMessage("")
     })
     .catch((err) => {
       // console.log("permission not granted")
@@ -77,6 +77,19 @@ function Timer ({updateState}) {
     });
   }
 
+
+  React.useEffect(() => {
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    })
+    .then((stream) => {
+      setMessage("")
+    })
+    .catch((err) => {
+      setMessage("* Give Camera and Microphone access and refresh this page *")
+    });
+  }, [])
 
   React.useEffect(() => {
     const interval = setInterval(() => {
