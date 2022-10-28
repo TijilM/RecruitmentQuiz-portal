@@ -45,8 +45,8 @@ function LeftAside(){
 
         // console.log("data", data)
 
-        // const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
-        const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
+        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
 
         if(res.data.status == "success"){
             localStorage.removeItem("jwt")

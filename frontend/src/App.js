@@ -23,7 +23,7 @@ function App() {
     // user.data.user.shift==1?(Date.now()-Date.parse("October, 28, 2022 01:00:00")>-2000?true:false):(Date.now()-Date.parse("October, 28, 2022 21:30:00")>-2000?true:false)
     console.log(user.data.user.shift)
     if(user.data.user.shift == 1){
-      if(Date.now() - Date.parse("October, 28, 2022 01:00:00") > -2000){
+      if(Date.now() - Date.parse("October, 28, 2022 21:00:00") > -2000){
         // console.log("true")
         return true
       }else {
@@ -48,7 +48,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/signup" element={<LoginRedirect />}></Route>
           <Route path="/instructions" element={<Instructions updateState={updateState} />}></Route>
           {
             user 
