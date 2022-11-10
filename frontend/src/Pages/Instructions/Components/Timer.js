@@ -80,7 +80,7 @@ function Timer ({updateState}) {
 
 
   React.useEffect(() => {
-    console.log("entered")
+    // console.log("entered")
     navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
