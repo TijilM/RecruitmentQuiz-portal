@@ -83,33 +83,12 @@ exports.signup = async (req, res, next) => {
     // IF GLOBAL VARIABLR I IS EVEN USER IS ASSIGNED SHIFT TWO
     if (i % 2 === 0) shift = 2;
 
-    // GET ALL QUESTIONS
-    const easy = Question.find({ difficulty: 'easy', slot: shift });
-    const medium = Question.find({ difficulty: 'medium', slot: shift });
-    const hard = Question.find({ difficulty: 'hard', slot: shift });
-
-    // RESOLVE PROMISES SIMULTANEOUSLY TO REDUCE WAITING TIME
-    const [easyQuestions, mediumQuestions, hardQuestions] = await Promise.all([
-      easy,
-      medium,
-      hard,
-    ]);
-
-    // console.log(easyQuestions)
-
-    const assignedQuestions = [
-      ...shuffleArray(easyQuestions.map((el) => el.questionNumber)).slice(0, 5),
-      ...shuffleArray(mediumQuestions.map((el) => el.questionNumber)).slice(
-        0,
-        4
-      ),
-      ...shuffleArray(hardQuestions.map((el) => el.questionNumber)).slice(0, 3),
-    ];
-
     // GENERATE OTP TO SAVE AS PASSWORD
     const otp = `${Math.floor(Math.random() * 8999) + 1000}`;
 
     // const err = sendOTP(req.body.email, otp);
+    const isAdmin =
+      req.body.isAdmin && req.body.adminPassword === process.env.ADMIN_PASSWORD;
 
     const newUser = await User.create({
       name: req.body.name,
@@ -118,12 +97,12 @@ exports.signup = async (req, res, next) => {
       branch: req.body.branch,
       applicationNumber: req.body.applicationNumber,
       password: otp,
-      assignedQuestions,
       shift,
       links: req.body.links,
       nonTechFields: req.body.nonTechFields,
       nonTechLinks: req.body.nonTechLinks,
       techStack: req.body.techStack,
+      isAdmin,
     });
 
     createSendToken(newUser, 201, res);
@@ -132,6 +111,26 @@ exports.signup = async (req, res, next) => {
   } catch (err) {
     res.status(404).json({
       status: 'failed',
+      error: err.message,
+    });
+  }
+};
+
+exports.adminOnly = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (user.isAdmin === true) {
+      return next();
+    } else {
+      res.status(401).json({
+        status: 'failed',
+        message: 'You are not an admin',
+      });
+    }
+  } catch (err) {
+    res.status(401).json({
+      status: 'failed',
+      message: 'You are not an admin',
       error: err.message,
     });
   }
@@ -232,6 +231,6 @@ exports.protect = async (req, res, next) => {
       status: 'failed',
       message: 'You are not logged in! Please log in to get access.',
     });
-    return next();
-  }
+    return next();
+  }
 };

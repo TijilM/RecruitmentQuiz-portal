@@ -30,6 +30,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide a password'],
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  adminPassword: {
+    type: String,
+  },
   score: {
     type: Number,
     default: 0,
@@ -50,7 +57,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'A user must have a shift'],
     min: [1, 'Shift can only be one or two'],
-    max: [2, 'Shift can only be one or two'],
+    max: [3, 'Shift can only be one or two or three in emergencies'],
   },
   applicationNumber: {
     type: String,
