@@ -78,16 +78,16 @@ img, a {
   cursor: pointer;
 }
 
-.loginButton:hover {
+.button:hover {
   background-color: #2e2d3c;
   transform: scale(1.1);
   transition-duration: 400ms;
 }
 
-.registerButton {
+/* .registerButton {
   opacity: 0.75;
   cursor: auto;
-}
+} */
 
 .spacer {
   display: flex;
