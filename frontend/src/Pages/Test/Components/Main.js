@@ -7,6 +7,7 @@ import $ from "jquery";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { api_url } from "../../../config";
 
 
 function Main() {
@@ -42,8 +43,7 @@ function Main() {
                 }
             }
 
-            const res = await axios.get("https://recruitment-api.ccstiet.com/api/v1/questions/getQuestions", config);
-            // const res = await axios.get("http://127.0.0.1:8000/api/v1/questions/getQuestions", config);
+            const res = await axios.get(api_url + "/questions/getQuestions", config);
 
             const questions = res.data.data.questions;
 
@@ -124,8 +124,7 @@ function Main() {
 
         // console.log("data", data)
 
-        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
-        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post(api_url + "/answers/checkAnswers", data, config)
 
         if(res.data.status == "success"){
             setButton(

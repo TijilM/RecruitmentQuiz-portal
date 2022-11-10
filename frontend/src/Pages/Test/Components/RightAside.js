@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import Countdown from 'react-countdown';
+import { api_url, test_duration } from "../../../config";
 
 
 
@@ -38,8 +39,7 @@ function RightAside(){
             "questionIdsAndAnswers": finalAnswers,
         }
     
-        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config)
-        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post(api_url + "/answers/checkAnswers", data, config)
     
         if(res.data.status == "success"){
             localStorage.removeItem("jwt")
@@ -60,7 +60,7 @@ function RightAside(){
         <div>
             <div className={styles.testTimer}>
 
-                <Countdown date={Date.now() + 15*60*1000 - timePast} onComplete={submitQuiz} onTick={timerTick} className={styles.testTime}/>
+                <Countdown date={Date.now() + test_duration*60*1000 - timePast} onComplete={submitQuiz} onTick={timerTick} className={styles.testTime}/>
 
                 <div className={styles.timerText}>TIME REMAINING</div>
             </div>

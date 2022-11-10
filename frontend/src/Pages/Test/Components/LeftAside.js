@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import $ from "jquery";
-
-// const baseURL = "https://recruitment-api.ccstiet.com/api/v1/users/profile";
+import { api_url } from "../../../config";
 
 // console.log(User.data.user)
 function LeftAside() {
@@ -37,8 +36,7 @@ function LeftAside() {
 
         // console.log("data", data)
 
-        const res = await axios.post("https://recruitment-api.ccstiet.com/api/v1/answers/checkAnswers", data, config);
-        // const res = await axios.post("http://127.0.0.1:8000/api/v1/answers/checkAnswers", data, config)
+        const res = await axios.post(api_url + "/answers/checkAnswers", data, config);
 
         if (res.data.status == "success") {
             localStorage.removeItem("jwt");
@@ -85,7 +83,7 @@ function LeftAside() {
 
         }
 
-        const res = await axios.patch("https://recruitment-api.ccstiet.com/api/v1/users/cheatAttempt", data, config)
+        const res = await axios.patch(api_url + "/users/cheatAttempt", data, config)
         // console.log(res)
     }
 

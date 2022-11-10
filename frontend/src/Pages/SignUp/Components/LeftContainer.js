@@ -5,9 +5,9 @@ import styles from "../Style/leftContainer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import logo from "../Assets/black-logo.png";
+import { api_url } from "../../../config";
 
-// const url = "http://127.0.0.1:8000/api/v1/users/signup";
-const url = "https://recruitment-api.ccstiet.com/api/v1/users/signup";
+const url = api_url + "/users/signup";
 
 const LeftContainer = (props) => {
   const [name, setName] = useState("");

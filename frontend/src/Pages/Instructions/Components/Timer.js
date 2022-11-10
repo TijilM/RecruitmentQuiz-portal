@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from "../Style/timer.module.css";
 import { useNavigate, redirect } from "react-router-dom"
+import {slot1_time, slot2_time} from "../../../config.js"
 
 
 
@@ -36,9 +37,9 @@ function Timer ({updateState}) {
   const shift = user.data.user.shift;
   let deadline = ""
   if(shift == 1){
-    deadline = "October, 28, 2022 21:00:00";
+    deadline = slot1_time;
   }else {
-    deadline = "October, 28, 2022 21:30:00";
+    deadline = slot2_time;
 
   }
 
@@ -73,12 +74,13 @@ function Timer ({updateState}) {
     })
     .catch((err) => {
       // console.log("permission not granted")
-      setMessage("* Give Camera and Microphone access and refresh this page to gain access to test *")
+      setMessage("* Give Camera and Microphone access and refresh this page *")
     });
   }
 
 
   React.useEffect(() => {
+    console.log("entered")
     navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
